@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} — Radova Events</title>
+  <meta name="radova:title" content="{{TITLE}}">
+  <meta name="radova:slug" content="{{SLUG}}">
+  <meta name="radova:type" content="workshop">
+  <meta name="radova:summary" content="{{SUMMARY}}">
+  <meta name="radova:tags" content="{{TAGS}}">
+  <meta name="radova:speaker" content="{{SPEAKER}}">
+  <meta name="radova:level" content="{{LEVEL}}">
+  <meta name="radova:quota" content="{{QUOTA}}">
+  <meta name="radova:price" content="{{PRICE}}">
+  <meta name="radova:start_time" content="{{START_TIME_WIB}}">
+  <meta name="radova:end_time" content="{{END_TIME_WIB}}">
+  <meta name="radova:location" content="{{LOCATION}}">
+  <meta name="radova:register_url" content="{{REGISTER_URL}}">
+  <meta name="radova:status" content="{{STATUS}}">
+</head>
+<body>
+  <main id="main">
+    <p><a href="/events/">All Events</a> · <a href="/events/workshop/">Workshop</a></p>
+    <h1>{{TITLE}}</h1>
+    <p>{{SUMMARY}}</p>
+
+    <dl>
+      <dt>Type</dt><dd>Workshop</dd>
+      <dt>Status</dt><dd>{{STATUS}}</dd>
+      <dt>Time (WIB)</dt><dd>{{START_WIB}} – {{END_WIB}}</dd>
+      <dt>Location</dt><dd>{{LOCATION}}</dd>
+      <dt>Speaker</dt><dd>{{SPEAKER}}</dd>
+      <dt>Level</dt><dd>{{LEVEL}}</dd>
+      <dt>Quota</dt><dd>{{QUOTA}}</dd>
+      <dt>Price</dt><dd>{{PRICE}}</dd>
+      <dt>Register</dt><dd><a href="{{REGISTER_URL}}">Register</a></dd>
+    </dl>
+
+    <section aria-labelledby="overview-heading">
+      <h2 id="overview-heading">Overview</h2>
+      <p>{{OVERVIEW}}</p>
+    </section>
+
+    <section aria-labelledby="syllabus-heading">
+      <h2 id="syllabus-heading">Syllabus</h2>
+      <ul>
+        <li>{{SYLLABUS_ITEM}}</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="prerequisites-heading">
+      <h2 id="prerequisites-heading">Prerequisites</h2>
+      <ul>
+        <li>{{PREREQUISITE_ITEM}}</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="schedule-heading">
+      <h2 id="schedule-heading">Schedule</h2>
+      <ul>
+        <li>{{SCHEDULE_ITEM}}</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="mentor-heading">
+      <h2 id="mentor-heading">Mentor</h2>
+      <p>{{SPEAKER}} · {{MENTOR_BIO}}</p>
+    </section>
+  </main>
+</body>
+</html>

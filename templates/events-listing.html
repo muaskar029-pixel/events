@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{TITLE}} — Radova Events</title>
+</head>
+<body>
+  <main id="main">
+    <h1>{{HEADING}}</h1>
+    <p>{{INTRO}}</p>
+    <p><a href="/events/">All Events</a> · <a href="/events/workshop/">Workshop</a> · <a href="/events/bootcamp/">Bootcamp</a></p>
+
+    <section aria-labelledby="upcoming-heading">
+      <h2 id="upcoming-heading">Upcoming &amp; Ongoing</h2>
+      <!-- Closest date first -->
+      <ul>
+        <li>
+          <a href="{{EVENT_URL}}">{{EVENT_TITLE}}</a><br>
+          <small>{{TYPE}} · {{STATUS}} · {{START_WIB}} · {{LOCATION}} · {{PRICE}}</small>
+          <p>{{SUMMARY}}</p>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="past-heading">
+      <h2 id="past-heading">Past Events</h2>
+      <!-- Newest first, 10 per page (/events/<type>/page/<n>/) -->
+      <p>No past events yet.</p>
+    </section>
+  </main>
+</body>
+</html>
