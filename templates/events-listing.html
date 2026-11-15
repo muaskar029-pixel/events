@@ -3,31 +3,121 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="htmx-config" content='{"selfRequestsOnly":true,"allowScriptTags":false,"allowEval":false}'>
   <title>{{TITLE}} — Radova Events</title>
+  <link rel="stylesheet" href="{{ROOT}}assets/pico.min.css">
+  <link rel="stylesheet" href="{{ROOT}}assets/site.css">
+  <script src="{{ROOT}}assets/htmx.min.js" defer></script>
+  <script src="{{ROOT}}assets/site.js" defer></script>
 </head>
 <body>
-  <main id="main">
-    <h1>{{HEADING}}</h1>
-    <p>{{INTRO}}</p>
-    <p><a href="/events/">All Events</a> · <a href="/events/workshop/">Workshop</a> · <a href="/events/bootcamp/">Bootcamp</a></p>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <section aria-labelledby="upcoming-heading">
-      <h2 id="upcoming-heading">Upcoming &amp; Ongoing</h2>
-      <!-- Closest date first -->
-      <ul>
-        <li>
-          <a href="{{EVENT_URL}}">{{EVENT_TITLE}}</a><br>
-          <small>{{TYPE}} · {{STATUS}} · {{START_WIB}} · {{LOCATION}} · {{PRICE}}</small>
-          <p>{{SUMMARY}}</p>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-lockup" href="https://radova.org/">
+        <img src="{{ROOT}}assets/logo.png" alt="Radova Logo" width="28" height="28">
+        <span class="brand-name">RADOVA</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a target="_blank" rel="noopener" href="https://packer.radova.org">Packages</a></li>
+          <li><a target="_blank" rel="noopener" href="https://wiki.radova.org">Wiki</a></li>
+          <li><a href="https://radova.org/learns">Learning</a></li>
+          <li><a href="{{EVENTS_ROOT}}" aria-current="page">Events</a></li>
+          <li><a href="https://radova.org/latest/">Latest</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a class="btn-navy" href="https://radova.org/about/">About</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" tabindex="-1">
+    <section class="hero-split" aria-labelledby="page-title">
+      <div class="hero-title-col">
+        <h1 id="page-title">{{HEADING}}</h1>
+      </div>
+      <div class="hero-lead-col">
+        <p class="hero-lead">{{INTRO}}</p>
+      </div>
+    </section>
+
+    <div class="control-bar">
+      <nav class="events-nav" aria-label="Events" hx-boost="true" hx-select="main" hx-target="main" hx-swap="outerHTML" hx-push-url="true">
+        <a href="{{EVENTS_ROOT}}">All Events</a>
+        <span class="nav-sep" aria-hidden="true">·</span>
+        <a href="{{EVENTS_ROOT}}workshop/">Workshop</a>
+        <span class="nav-sep" aria-hidden="true">·</span>
+        <a href="{{EVENTS_ROOT}}bootcamp/">Bootcamp</a>
+      </nav>
+      <div class="control-meta">
+        <span class="tz-tag">WIB (UTC+7)</span>
+        <span class="nav-sep" aria-hidden="true">·</span>
+        <span class="control-count">{{SLOT_COUNT}} Upcoming Slots</span>
+        <span class="nav-sep" aria-hidden="true">·</span>
+        <a class="control-jump" href="#past-events">Past Events ↓</a>
+      </div>
+    </div>
+
+    <section class="timetable-section" aria-labelledby="upcoming-heading">
+      <div class="section-bar">
+        <h2 id="upcoming-heading">Upcoming &amp; Ongoing Schedule</h2>
+        <span class="section-bar-note">Closest Date First</span>
+      </div>
+      <!-- Empty state: <p class="empty-notice">No upcoming events scheduled right now. Check back soon or browse Past Events below.</p> -->
+      <ul class="timetable-grid">
+        <li class="timetable-col">
+          <div class="slot-date-head">
+            <h2><time datetime="{{ISO_DATE}}">{{DATE_LABEL}}</time></h2>
+          </div>
+          <!-- Add .slot-body-featured for ongoing/highlighted slot -->
+          <div class="slot-body">
+            <div>
+              <span class="slot-meta-tag">{{TYPE}} · {{LEVEL}}</span>
+              <h3 class="slot-title"><a href="{{EVENT_URL}}">{{EVENT_TITLE}} →</a></h3>
+              <p class="slot-speaker">{{SPEAKER}} · {{LOCATION}} · {{PRICE}} · {{QUOTA}} seats</p>
+            </div>
+            <div class="slot-footer">
+              <span class="slot-time">{{START_TIME}}–{{END_TIME}} WIB</span>
+              <span class="badge {{STATUS_CLASS}}">{{STATUS_LABEL}}</span>
+            </div>
+          </div>
         </li>
       </ul>
     </section>
 
-    <section aria-labelledby="past-heading">
-      <h2 id="past-heading">Past Events</h2>
-      <!-- Newest first, 10 per page (/events/<type>/page/<n>/) -->
-      <p>No past events yet.</p>
+    <section id="past-events" class="archive-section" aria-labelledby="past-heading">
+      <div class="section-bar">
+        <h2 id="past-heading">Past Events</h2>
+        <span class="section-bar-note">Newest First · 10 / Page</span>
+      </div>
+      <!-- Empty state: <p class="empty-notice">No past events recorded yet.</p> -->
+      <p id="past-events-status" class="visually-hidden" aria-live="polite"></p>
+      <ul id="past-events-list" class="archive-grid">
+        <li class="archive-item">
+          <span class="slot-meta-tag">{{DATE_SHORT}} · {{TYPE}}</span>
+          <h3><a href="{{EVENT_URL}}">{{EVENT_TITLE}} →</a></h3>
+          <p class="slot-speaker">{{SPEAKER}}</p>
+          <div class="slot-footer">
+            <span class="slot-time">{{TIME_WIB}} WIB (UTC+7)</span>
+            <span class="badge {{STATUS_CLASS}}">{{STATUS_LABEL}}</span>
+          </div>
+        </li>
+      </ul>
+      <nav class="pagination" aria-label="Pagination">
+        <a class="pagination-link" rel="prev" href="{{PREV_URL}}">← Previous</a>
+        <a class="pagination-link" rel="next" href="{{NEXT_URL}}" hx-get="{{NEXT_URL}}" hx-select="#past-events-list > li" hx-target="#past-events-list" hx-swap="beforeend" hx-push-url="true">Next Page →</a>
+      </nav>
     </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Radova · Events Scheduler · WIB (UTC+7)</p>
+      <p>Static HTML · Lynx-ready</p>
+    </div>
+  </footer>
 </body>
 </html>

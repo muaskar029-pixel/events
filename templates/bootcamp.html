@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="htmx-config" content='{"selfRequestsOnly":true,"allowScriptTags":false,"allowEval":false}'>
   <title>{{TITLE}} — Radova Events</title>
   <meta name="radova:title" content="{{TITLE}}">
   <meta name="radova:slug" content="{{SLUG}}">
@@ -18,55 +19,120 @@
   <meta name="radova:location" content="{{LOCATION}}">
   <meta name="radova:register_url" content="{{REGISTER_URL}}">
   <meta name="radova:status" content="{{STATUS}}">
+  <link rel="stylesheet" href="../../../assets/pico.min.css">
+  <link rel="stylesheet" href="../../../assets/site.css">
+  <script src="../../../assets/htmx.min.js" defer></script>
+  <script src="../../../assets/site.js" defer></script>
 </head>
 <body>
-  <main id="main">
-    <p><a href="/events/">All Events</a> · <a href="/events/bootcamp/">Bootcamp</a></p>
-    <h1>{{TITLE}}</h1>
-    <p>{{SUMMARY}}</p>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <dl>
-      <dt>Type</dt><dd>Bootcamp</dd>
-      <dt>Status</dt><dd>{{STATUS}}</dd>
-      <dt>Time (WIB)</dt><dd>{{START_WIB}} – {{END_WIB}}</dd>
-      <dt>Location</dt><dd>{{LOCATION}}</dd>
-      <dt>Speaker</dt><dd>{{SPEAKER}}</dd>
-      <dt>Level</dt><dd>{{LEVEL}}</dd>
-      <dt>Quota</dt><dd>{{QUOTA}}</dd>
-      <dt>Price</dt><dd>{{PRICE}}</dd>
-      <dt>Register</dt><dd><a href="{{REGISTER_URL}}">Register</a></dd>
-    </dl>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-lockup" href="https://radova.org/">
+        <img src="../../../assets/logo.png" alt="Radova Logo" width="28" height="28">
+        <span class="brand-name">RADOVA</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a target="_blank" rel="noopener" href="https://packer.radova.org">Packages</a></li>
+          <li><a target="_blank" rel="noopener" href="https://wiki.radova.org">Wiki</a></li>
+          <li><a href="https://radova.org/learns">Learning</a></li>
+          <li><a href="../../" aria-current="page">Events</a></li>
+          <li><a href="https://radova.org/latest/">Latest</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a class="btn-navy" href="https://radova.org/about/">About</a>
+      </div>
+    </div>
+  </header>
 
-    <section aria-labelledby="overview-heading">
-      <h2 id="overview-heading">Overview</h2>
-      <p>{{OVERVIEW}}</p>
-    </section>
+  <main id="main" class="site-main" tabindex="-1">
+    <header class="single-header" aria-labelledby="page-title">
+      <div class="single-back-bar">
+        <a class="back-link" href="../">&larr; All Bootcamps</a>
+        <div class="post-row-badges">
+          <span class="badge">Bootcamp</span>
+          <span class="nav-sep" aria-hidden="true">·</span>
+          <span class="badge">{{LEVEL}}</span>
+          <span class="nav-sep" aria-hidden="true">·</span>
+          <span class="badge {{STATUS_CLASS}}">{{STATUS_LABEL}}</span>
+        </div>
+      </div>
 
-    <section aria-labelledby="syllabus-heading">
-      <h2 id="syllabus-heading">Syllabus</h2>
-      <ul>
-        <li>{{SYLLABUS_ITEM}}</li>
-      </ul>
-    </section>
+      <h1 id="page-title">{{TITLE}}</h1>
+      <p class="single-lead">{{SUMMARY}}</p>
 
-    <section aria-labelledby="prerequisites-heading">
-      <h2 id="prerequisites-heading">Prerequisites</h2>
-      <ul>
-        <li>{{PREREQUISITE_ITEM}}</li>
-      </ul>
-    </section>
+      <dl class="single-facts" aria-label="Event key facts">
+        <div class="single-fact">
+          <dt>When</dt>
+          <dd>{{START_WIB}} – {{END_WIB}} WIB</dd>
+        </div>
+        <div class="single-fact">
+          <dt>Where</dt>
+          <dd>{{LOCATION}}</dd>
+        </div>
+        <div class="single-fact">
+          <dt>Quota</dt>
+          <dd>{{QUOTA}} seats</dd>
+        </div>
+        <div class="single-fact">
+          <dt>Price</dt>
+          <dd>{{PRICE}}</dd>
+        </div>
+      </dl>
+    </header>
 
-    <section aria-labelledby="schedule-heading">
-      <h2 id="schedule-heading">Schedule</h2>
-      <ul>
-        <li>{{SCHEDULE_ITEM}}</li>
-      </ul>
-    </section>
+    <div class="single-layout">
+      <div class="editorial-prose">
+        <section aria-labelledby="overview-heading">
+          <h2 id="overview-heading">Overview</h2>
+          <p>{{OVERVIEW}}</p>
+        </section>
 
-    <section aria-labelledby="mentor-heading">
-      <h2 id="mentor-heading">Mentor</h2>
-      <p>{{SPEAKER}} · {{MENTOR_BIO}}</p>
-    </section>
+        <section aria-labelledby="syllabus-heading">
+          <h2 id="syllabus-heading">Syllabus</h2>
+          <ol class="syllabus-timeline">
+            <li>
+              <span class="timeline-label">{{MODULE_LABEL}}</span>
+              {{SYLLABUS_ITEM}}
+            </li>
+          </ol>
+        </section>
+
+        <section aria-labelledby="prerequisites-heading">
+          <h2 id="prerequisites-heading">Prerequisites</h2>
+          <ul>
+            <li>{{PREREQUISITE_ITEM}}</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="schedule-heading">
+          <h2 id="schedule-heading">Schedule</h2>
+          <ul>
+            <li>{{SCHEDULE_ITEM}}</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="mentor-heading">
+          <h2 id="mentor-heading">Mentor</h2>
+          <p>{{SPEAKER}} · {{MENTOR_BIO}}</p>
+        </section>
+      </div>
+
+      <aside class="single-action" aria-label="Registration">
+        <p class="action-eyebrow">{{STATUS_LABEL}}</p>
+        <p class="action-when">{{START_WIB}} – {{END_WIB}} WIB</p>
+        <a class="btn-cta" href="{{REGISTER_URL}}" hx-boost="false">Register Now →</a>
+        <!-- Closed state: <span class="btn-cta is-closed" aria-disabled="true">Registration Closed</span> -->
+        <p class="action-note">Hosted by {{SPEAKER}} · {{LOCATION}} · {{PRICE}} · {{QUOTA}} seats</p>
+      </aside>
+    </div>
   </main>
+
+  <footer class="site-footer">
+    <p>Radova · Events Scheduler · WIB (UTC+7)</p>
+  </footer>
 </body>
 </html>

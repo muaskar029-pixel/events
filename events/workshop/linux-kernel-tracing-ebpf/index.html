@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="htmx-config" content='{"selfRequestsOnly":true,"allowScriptTags":false,"allowEval":false}'>
+  <title>Linux Kernel Tracing with eBPF &amp; BCC — Radova Events</title>
+  <meta name="radova:title" content="Linux Kernel Tracing with eBPF &amp; BCC">
+  <meta name="radova:slug" content="linux-kernel-tracing-ebpf">
+  <meta name="radova:type" content="workshop">
+  <meta name="radova:summary" content="Practical workshop on tracing syscalls, I/O latency, and kernel bottlenecks using eBPF and BCC tools.">
+  <meta name="radova:tags" content="linux,ebpf,bcc,performance">
+  <meta name="radova:speaker" content="Radova Core Team">
+  <meta name="radova:level" content="intermediate">
+  <meta name="radova:quota" content="30">
+  <meta name="radova:price" content="Free">
+  <meta name="radova:start_time" content="2026-11-24T19:00:00+07:00">
+  <meta name="radova:end_time" content="2026-11-24T21:00:00+07:00">
+  <meta name="radova:location" content="Online">
+  <meta name="radova:register_url" content="https://radova.org/events">
+  <meta name="radova:status" content="upcoming">
+  <link rel="stylesheet" href="../../../assets/pico.min.css">
+  <link rel="stylesheet" href="../../../assets/site.css">
+  <script src="../../../assets/htmx.min.js" defer></script>
+  <script src="../../../assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand-lockup" href="https://radova.org/">
+        <img src="../../../assets/logo.png" alt="Radova Logo" width="28" height="28">
+        <span class="brand-name">RADOVA</span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a target="_blank" rel="noopener" href="https://packer.radova.org">Packages</a></li>
+          <li><a target="_blank" rel="noopener" href="https://wiki.radova.org">Wiki</a></li>
+          <li><a href="https://radova.org/learns">Learning</a></li>
+          <li><a href="../../" aria-current="page">Events</a></li>
+          <li><a href="https://radova.org/latest/">Latest</a></li>
+        </ul>
+      </nav>
+      <div class="header-cta">
+        <a class="btn-navy" href="https://radova.org/about/">About</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="site-main" tabindex="-1">
+    <header class="single-header" aria-labelledby="page-title">
+      <div class="single-back-bar">
+        <a class="back-link" href="../">&larr; All Workshops</a>
+        <div class="post-row-badges">
+          <span class="badge">Workshop</span>
+          <span class="nav-sep" aria-hidden="true">·</span>
+          <span class="badge">Intermediate</span>
+          <span class="nav-sep" aria-hidden="true">·</span>
+          <span class="badge badge-open">Registration Open</span>
+        </div>
+      </div>
+
+      <h1 id="page-title">Linux Kernel Tracing with eBPF &amp; BCC</h1>
+      <p class="single-lead">Practical workshop on tracing syscalls, I/O latency, and kernel bottlenecks using eBPF and BCC tools.</p>
+
+      <dl class="single-facts" aria-label="Event key facts">
+        <div class="single-fact">
+          <dt>When</dt>
+          <dd>2026-11-24 · 19:00–21:00 WIB</dd>
+        </div>
+        <div class="single-fact">
+          <dt>Where</dt>
+          <dd>Online</dd>
+        </div>
+        <div class="single-fact">
+          <dt>Quota</dt>
+          <dd>30 seats</dd>
+        </div>
+        <div class="single-fact">
+          <dt>Price</dt>
+          <dd>Free</dd>
+        </div>
+      </dl>
+    </header>
+
+    <div class="single-layout">
+      <div class="editorial-prose">
+        <section aria-labelledby="overview-heading">
+          <h2 id="overview-heading">Overview</h2>
+          <p>Learn how to inspect live Linux kernel behavior safely in production without kernel modules or heavy profiling overhead. We walk through real-world syscall, disk I/O, and TCP latency diagnostics using BCC and bpftrace.</p>
+        </section>
+
+        <section aria-labelledby="syllabus-heading">
+          <h2 id="syllabus-heading">Syllabus</h2>
+          <ol class="syllabus-timeline">
+            <li>
+              <span class="timeline-label">19:00–19:30 WIB (UTC+7)</span>
+              eBPF architecture, verifier safety model, and tracepoints vs kprobes.
+            </li>
+            <li>
+              <span class="timeline-label">19:30–20:30 WIB (UTC+7)</span>
+              Hands-on BCC &amp; bpftrace: tracing syscalls, page cache misses, and block I/O latency.
+            </li>
+            <li>
+              <span class="timeline-label">20:30–21:00 WIB (UTC+7)</span>
+              Reading flamegraphs, production safety checklist, and Q&amp;A.
+            </li>
+          </ol>
+        </section>
+
+        <section aria-labelledby="prerequisites-heading">
+          <h2 id="prerequisites-heading">Prerequisites</h2>
+          <ul>
+            <li>Comfortable using a Linux shell (bash/zsh)</li>
+            <li>Basic understanding of processes, filesystems, and TCP/IP</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="mentor-heading">
+          <h2 id="mentor-heading">Mentor</h2>
+          <p>Radova Core Team · Systems engineers maintaining hardened Linux infrastructure and archival storage tooling.</p>
+        </section>
+      </div>
+
+      <aside class="single-action" aria-label="Registration">
+        <p class="action-eyebrow">Registration Open</p>
+        <p class="action-when">TUE NOV 24 · 19:00–21:00 WIB</p>
+        <a class="btn-cta" href="https://radova.org/events" hx-boost="false">Register Now →</a>
+        <p class="action-note">Hosted by Radova Core Team · Online · Free · 30 seats</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>Radova · Events Scheduler · WIB (UTC+7)</p>
+      <p>Static HTML · Lynx-ready</p>
+    </div>
+  </footer>
+</body>
+</html>
