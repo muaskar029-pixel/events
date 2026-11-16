@@ -14,12 +14,13 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="site-header-inner">
-      <a class="brand-lockup" href="https://radova.org/">
-        <img src="../../assets/logo.png" alt="Radova Logo" width="28" height="28">
-        <span class="brand-name">RADOVA</span>
-      </a>
-      <nav class="primary-nav" aria-label="Primary navigation">
+    <a class="brand-lockup" href="https://radova.org/">
+      <img src="../../assets/logo.png" alt="Radova Logo" width="32">
+      <span class="brand-name">RADOVA</span>
+    </a>
+
+    <div id="primary-nav" class="header-menu">
+      <nav aria-label="Primary navigation">
         <ul class="nav-list">
           <li><a target="_blank" rel="noopener" href="https://packer.radova.org">Packages</a></li>
           <li><a target="_blank" rel="noopener" href="https://wiki.radova.org">Wiki</a></li>
@@ -28,10 +29,34 @@
           <li><a href="https://radova.org/latest/">Latest</a></li>
         </ul>
       </nav>
-      <div class="header-cta">
-        <a class="btn-navy" href="https://radova.org/about/">About</a>
-      </div>
+
+      <nav class="navbar" aria-label="About menu">
+        <ul class="nav-links">
+          <li class="dropdown">
+            <a id="test2" href="#" class="btn-navy" aria-haspopup="true" aria-expanded="false">About</a>
+            <div class="menu-arrow" aria-hidden="true"></div>
+            <div class="dropdown-content" role="menu">
+              <a class="d-content-h" href="https://radova.org/about/" role="menuitem">About</a>
+              <a class="d-content-r" href="https://radova.org/about/history" role="menuitem">History</a>
+              <a class="d-content-c" href="https://radova.org/about/contact" role="menuitem">Contact</a>
+              <button type="button" class="d-content-back" role="menuitem">Back</button>
+            </div>
+          </li>
+        </ul>
+      </nav>
     </div>
+
+    <button
+      type="button"
+      class="nav-toggle"
+      aria-label="Buka menu navigasi"
+      aria-controls="primary-nav"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <main id="main" class="site-main" tabindex="-1">
