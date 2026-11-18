@@ -653,6 +653,10 @@ button.btn-lang:hover {
   }
 }
 
+nav.footer-col {
+  display: block;
+}
+
 .footer-heading {
   font-family: var(--font-heading);
   font-size: 14px;
