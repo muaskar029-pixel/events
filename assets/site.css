@@ -585,29 +585,123 @@ nav.navbar li :where(a, [role="link"]) {
 
 .site-footer {
   width: 100%;
-  border-top: 1px solid var(--radova-border);
-  background-color: var(--radova-bg);
+  background: linear-gradient(180deg, #0E0347 0%, #08022b 100%);
+  border-top: 3px solid var(--radova-red);
+  padding-block: 3.5rem 2.25rem;
+  padding-inline: max(1rem, calc((100% - 72rem) / 2));
+  color: rgba(247, 246, 255, 0.78);
 }
 
-.site-footer-inner {
-  width: 100%;
-  max-width: var(--radova-max-width);
-  margin-inline: auto;
-  padding-top: 1.5rem;
-  padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
-  padding-inline: max(1.25rem, env(safe-area-inset-left), env(safe-area-inset-right));
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.25rem 2rem;
+  padding-bottom: 2.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+@media (min-width: 576px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.footer-heading {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  margin: 0 0 1rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links a {
+  color: rgba(247, 246, 255, 0.72);
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding-top: 1.75rem;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-brand-bar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem 1rem;
-  font-size: 0.8125rem;
-  color: var(--radova-muted);
+  gap: 0.75rem 1.5rem;
 }
 
-.site-footer-inner p {
+.brand-lockup-light .brand-name {
+  color: #FFFFFF;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: rgba(247, 246, 255, 0.58);
   margin: 0;
-  color: var(--radova-muted);
+}
+
+.footer-top {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(247, 246, 255, 0.85);
+  text-decoration: none;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+}
+
+.footer-top:hover {
+  color: #FFFFFF;
+  border-color: var(--radova-red);
+  background-color: rgba(219, 0, 15, 0.16);
 }
 
 /* Hero Split */
