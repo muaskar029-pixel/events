@@ -61,13 +61,13 @@
     </button>
   </header>
 
-  <main id="main" class="site-main" tabindex="-1">
+  <main id="main" class="site-main" data-event-tab="all" tabindex="-1">
     <section class="hero-split" aria-labelledby="page-title">
       <div class="hero-title-col">
         <h1 id="page-title" data-i18n="events.schedule.title">Schedule</h1>
       </div>
       <div class="hero-lead-col">
-        <p class="hero-lead" data-i18n="events.schedule.lead">Hands-on workshops and multi-week bootcamps on Linux, archival systems, and resilient web engineering. All schedules are listed in WIB (UTC+7).</p>
+        <p class="hero-lead" data-i18n="events.schedule.lead">Live Linux labs and multi-week engineering cohorts. Pick a single-evening drill or commit to a full track.</p>
       </div>
     </section>
 
@@ -82,31 +82,47 @@
       <div class="control-meta">
         <span class="tz-tag">WIB (UTC+7)</span>
         <span class="nav-sep" aria-hidden="true">·</span>
-        <span class="control-count" data-i18n="events.slot1">1 Upcoming Slot</span>
+        <span class="control-count" data-i18n="events.slot2">2 Upcoming Slots</span>
         <span class="nav-sep" aria-hidden="true">·</span>
-        <a class="control-jump" href="#past-events" data-i18n="events.pastJump">Past Events ↓</a>
+        <a class="control-jump" href="#past-events" data-i18n="events.pastJump">Past Archive ↓</a>
       </div>
     </div>
 
     <section class="timetable-section" aria-labelledby="upcoming-heading">
       <div class="section-bar">
-        <h2 id="upcoming-heading" data-i18n="events.upcoming">Upcoming &amp; Ongoing Schedule</h2>
-        <span class="section-bar-note" data-i18n="events.closest">Closest Date First</span>
+        <h2 id="upcoming-heading" data-i18n="events.upcoming">Upcoming Schedule</h2>
+        <span class="section-bar-note" data-i18n="events.closest">Next Up First</span>
       </div>
       <ul class="timetable-grid">
         <li class="timetable-col">
           <div class="slot-date-head">
-            <h2><time datetime="2026-11-24">TUE NOV 24</time></h2>
+            <h2><time datetime="2026-11-24">NOV 24</time></h2>
           </div>
           <div class="slot-body">
             <div>
-              <span class="slot-meta-tag">Workshop · Intermediate</span>
-              <h3 class="slot-title"><a href="workshop/linux-kernel-tracing-ebpf/">Linux Kernel Tracing with eBPF &amp; BCC →</a></h3>
-              <p class="slot-speaker">Radova Core Team · Online · Free · 30 seats</p>
+              <span class="slot-meta-tag" data-i18n="events.workshop">Workshop</span>
+              <h3 class="slot-title"><a href="workshop/linux-kernel-tracing-ebpf/">Linux Kernel Tracing with eBPF &amp; BCC</a></h3>
+              <p class="slot-speaker" data-i18n="events.card.seats30">Online · 30 seats</p>
             </div>
             <div class="slot-footer">
-              <span class="slot-time">19:00–21:00 WIB</span>
-              <span class="badge badge-open" data-i18n="events.open">Registration Open</span>
+              <span class="slot-time">19:00 WIB</span>
+              <span class="badge badge-open" data-i18n="events.open">Open</span>
+            </div>
+          </div>
+        </li>
+        <li class="timetable-col">
+          <div class="slot-date-head">
+            <h2><time datetime="2026-12-07">DEC 07</time></h2>
+          </div>
+          <div class="slot-body">
+            <div>
+              <span class="slot-meta-tag" data-i18n="events.card.bcAll">Bootcamp · 4 Weeks</span>
+              <h3 class="slot-title"><a href="bootcamp/radova-systems-engineering-cohort/">Radova Systems Engineering &amp; Packaging Cohort</a></h3>
+              <p class="slot-speaker" data-i18n="events.card.seats20">Online · 20 seats</p>
+            </div>
+            <div class="slot-footer">
+              <span class="slot-time">19:00 WIB</span>
+              <span class="badge badge-open" data-i18n="events.open">Open</span>
             </div>
           </div>
         </li>
@@ -115,10 +131,10 @@
 
     <section id="past-events" class="archive-section" aria-labelledby="past-heading">
       <div class="section-bar">
-        <h2 id="past-heading" data-i18n="events.past">Past Events</h2>
-        <span class="section-bar-note" data-i18n="events.newest">Newest First · 10 / Page</span>
+        <h2 id="past-heading" data-i18n="events.past">Past Archive</h2>
+        <span class="section-bar-note" data-i18n="events.newest">Newest First</span>
       </div>
-      <p class="empty-notice" data-i18n="events.empty.all">No past events recorded yet. Completed sessions will appear here in newest-first order.</p>
+      <p class="empty-notice" data-i18n="events.empty.all">No past sessions yet. Completed events archive here.</p>
     </section>
   </main>
 
