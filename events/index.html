@@ -93,7 +93,7 @@
         <h2 id="upcoming-heading" data-i18n="events.upcoming">Upcoming Schedule</h2>
         <span class="section-bar-note" data-i18n="events.closest">Next Up First</span>
       </div>
-      <ul class="timetable-grid">
+      <ul class="timetable-grid" hx-boost="true" hx-select="main" hx-target="main" hx-swap="outerHTML" hx-push-url="true">
         <li class="timetable-col">
           <div class="slot-date-head">
             <h2><time datetime="2026-11-24">NOV 24</time></h2>
