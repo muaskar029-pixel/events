@@ -2522,3 +2522,183 @@ nav.footer-col {
     transition: none;
   }
 }
+
+
+/* ==========================================================================
+   Dark Mode Toggle Button & Official Radova Dark Palette (darkmode.pdf)
+   Background: #0B0711 | Card: #150B52 | Deep Navy: #0E0347
+   Primary Text: #FFFFFF | Secondary Text: #C4C0D4
+   Primary: #A10000 | Hover: #BB080B | CTA Accent: #DB000F | Blue: #0035C6
+   ========================================================================== */
+button.btn-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  min-height: 36px;
+  margin: 0;
+  margin-left: auto;
+  padding: 0;
+  border-radius: 999px;
+  border: 1.5px solid rgba(14, 3, 71, 0.18);
+  background: #ffffff;
+  color: #0E0347;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease, transform 140ms ease;
+}
+
+button.btn-theme + button.btn-lang {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  button.btn-theme {
+    margin-left: 0;
+  }
+}
+
+button.btn-theme:hover {
+  border-color: #DB000F;
+  color: #DB000F;
+  background: #F7F6FF;
+}
+
+button.btn-theme:active {
+  transform: scale(0.96);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --radova-bg: #0B0711;
+  --radova-surface: #150B52;
+  --radova-dock: #0E0347;
+  --radova-surface-hover: #1c1066;
+  --radova-badge-lavender: #1f1468;
+  --radova-text: #FFFFFF;
+  --radova-muted: #C4C0D4;
+  --radova-border: rgba(196, 192, 212, 0.18);
+  --radova-accent: #FFFFFF;
+  --radova-red: #DB000F;
+  --radova-red-hover: #BB080B;
+  --radova-selection-bg: #150B52;
+  --radova-shadow-card: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --radova-shadow-hover: 0 14px 32px rgba(0, 0, 0, 0.5);
+
+  --tab-accent: #FFFFFF;
+  --tab-accent-vivid: #DB000F;
+  --tab-accent-hover: #BB080B;
+  --tab-surface: #150B52;
+  --tab-dock: #0E0347;
+  --tab-wash-primary: rgba(219, 0, 15, 0.22);
+  --tab-wash-secondary: rgba(21, 11, 82, 0.55);
+  --tab-divider: rgba(219, 0, 15, 0.45);
+  --tab-border-hover: rgba(219, 0, 15, 0.6);
+  --tab-tag-bg: rgba(219, 0, 15, 0.22);
+  --tab-tag-ink: #FFFFFF;
+
+  --pico-color: #FFFFFF;
+  --pico-muted-color: #C4C0D4;
+  --pico-background-color: #0B0711;
+  --pico-primary: #DB000F;
+  --pico-card-background-color: #150B52;
+  --pico-card-border-color: rgba(196, 192, 212, 0.18);
+}
+
+:root[data-theme="dark"] .site-header {
+  background: rgba(11, 7, 17, 0.88);
+  border-bottom-color: rgba(196, 192, 212, 0.16);
+}
+
+:root[data-theme="dark"] .brand-name,
+:root[data-theme="dark"] .nav-list a {
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .nav-toggle span {
+  background-color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .dropdown-content {
+  background-color: #150B52;
+  border-color: rgba(196, 192, 212, 0.22);
+}
+
+:root[data-theme="dark"] .dropdown-content a,
+:root[data-theme="dark"] .dropdown-content button.d-content-back {
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .dropdown-content a:hover,
+:root[data-theme="dark"] .dropdown-content button.d-content-back:hover {
+  background-color: #0E0347;
+  color: #DB000F;
+}
+
+:root[data-theme="dark"] button.btn-theme,
+:root[data-theme="dark"] button.btn-lang {
+  background-color: #150B52;
+  border-color: rgba(196, 192, 212, 0.28);
+  color: #F7F6FF;
+}
+
+:root[data-theme="dark"] button.btn-theme:hover,
+:root[data-theme="dark"] button.btn-lang:hover {
+  border-color: #DB000F;
+  color: #FFFFFF;
+  background-color: #0E0347;
+}
+
+:root[data-theme="dark"] .events-nav a[aria-current="page"] {
+  background-color: #DB000F;
+  border-color: #DB000F;
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .hero-split,
+:root[data-theme="dark"] .single-header {
+  background:
+    radial-gradient(48% 70% at 86% 18%, rgba(219, 0, 15, 0.22), transparent 72%),
+    radial-gradient(40% 60% at 12% 82%, rgba(21, 11, 82, 0.65), transparent 72%),
+    linear-gradient(180deg, #0E0347 0%, #150B52 100%);
+}
+
+:root[data-theme="dark"] .single-action {
+  background: linear-gradient(180deg, #150B52 0%, #0E0347 100%);
+}
+
+:root[data-theme="dark"] .badge-open {
+  background-color: rgba(0, 53, 198, 0.28);
+  border-color: rgba(196, 192, 212, 0.35);
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .site-main[data-event-tab="bootcamp"] .hero-split {
+  background: none;
+}
+
+:root[data-theme="dark"] .site-main[data-event-tab="bootcamp"] .hero-lead-col {
+  background: linear-gradient(180deg, #150B52 0% 62%, #DB000F 62% 100%);
+}
+
+:root[data-theme="dark"] .site-main[data-event-tab="bootcamp"] .hero-lead-col::after {
+  background-color: #0B0711;
+  color: #FFFFFF;
+}
+
+:root[data-theme="dark"] .site-main[data-event-tab="workshop"] .hero-split {
+  background: none;
+  border-bottom-color: rgba(196, 192, 212, 0.32);
+}
+
+:root[data-theme="dark"] .site-main[data-event-tab="workshop"] .timetable-col,
+:root[data-theme="dark"] .site-main[data-event-tab="workshop"] .archive-item {
+  border-color: rgba(196, 192, 212, 0.32);
+}
+
+@media (max-width: 767px) {
+  :root[data-theme="dark"] .header-menu {
+    background-color: #0B0711;
+  }
+}
