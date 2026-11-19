@@ -64,34 +64,34 @@
   <main id="main" class="site-main" tabindex="-1">
     <section class="hero-split" aria-labelledby="page-title">
       <div class="hero-title-col">
-        <h1 id="page-title">Workshops</h1>
+        <h1 id="page-title" data-i18n="events.workshop.title">Workshops</h1>
       </div>
       <div class="hero-lead-col">
-        <p class="hero-lead">Focused, single-session workshops covering practical tooling, open-source workflows, and system administration. All times are in WIB (UTC+7).</p>
+        <p class="hero-lead" data-i18n="events.workshop.lead">Focused, single-session workshops covering practical tooling, open-source workflows, and system administration. All times are in WIB (UTC+7).</p>
       </div>
     </section>
 
     <div class="control-bar">
       <nav class="events-nav" aria-label="Events" hx-boost="true" hx-select="main" hx-target="main" hx-swap="outerHTML" hx-push-url="true">
-        <a href="../">All Events</a>
+        <a href="../" data-i18n="events.all">All Events</a>
         <span class="nav-sep" aria-hidden="true">·</span>
-        <a href="./" aria-current="page">Workshop</a>
+        <a href="./" aria-current="page" data-i18n="events.workshop">Workshop</a>
         <span class="nav-sep" aria-hidden="true">·</span>
-        <a href="../bootcamp/">Bootcamp</a>
+        <a href="../bootcamp/" data-i18n="events.bootcamp">Bootcamp</a>
       </nav>
       <div class="control-meta">
         <span class="tz-tag">WIB (UTC+7)</span>
         <span class="nav-sep" aria-hidden="true">·</span>
-        <span class="control-count">1 Upcoming Slot</span>
+        <span class="control-count" data-i18n="events.slot1">1 Upcoming Slot</span>
         <span class="nav-sep" aria-hidden="true">·</span>
-        <a class="control-jump" href="#past-events">Past Events ↓</a>
+        <a class="control-jump" href="#past-events" data-i18n="events.pastJump">Past Events ↓</a>
       </div>
     </div>
 
     <section class="timetable-section" aria-labelledby="upcoming-heading">
       <div class="section-bar">
-        <h2 id="upcoming-heading">Upcoming &amp; Ongoing Schedule</h2>
-        <span class="section-bar-note">Closest Date First</span>
+        <h2 id="upcoming-heading" data-i18n="events.upcoming">Upcoming &amp; Ongoing Schedule</h2>
+        <span class="section-bar-note" data-i18n="events.closest">Closest Date First</span>
       </div>
       <ul class="timetable-grid">
         <li class="timetable-col">
@@ -106,7 +106,7 @@
             </div>
             <div class="slot-footer">
               <span class="slot-time">19:00–21:00 WIB</span>
-              <span class="badge badge-open">Registration Open</span>
+              <span class="badge badge-open" data-i18n="events.open">Registration Open</span>
             </div>
           </div>
         </li>
@@ -117,37 +117,37 @@
 
     <section id="past-events" class="archive-section" aria-labelledby="past-heading">
       <div class="section-bar">
-        <h2 id="past-heading">Past Events</h2>
-        <span class="section-bar-note">Newest First · 10 / Page</span>
+        <h2 id="past-heading" data-i18n="events.past">Past Events</h2>
+        <span class="section-bar-note" data-i18n="events.newest">Newest First · 10 / Page</span>
       </div>
-      <p class="empty-notice">No past workshops yet. Completed sessions will be archived here.</p>
+      <p class="empty-notice" data-i18n="events.empty.workshopPast">No past workshops yet. Completed sessions will be archived here.</p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="footer-grid">
       <nav class="footer-col" aria-label="Learn About Radova">
-        <h3 class="footer-heading">Learn About Radova</h3>
+        <h3 class="footer-heading" data-i18n="footer.col1">Learn About Radova</h3>
         <ul class="footer-links">
-          <li><a href="https://radova.org/about/">About</a></li>
-          <li><a href="https://radova.org/about/history">History</a></li>
-          <li><a href="https://radova.org/latest/">Latest</a></li>
-          <li><a href="https://radova.org/events">Events</a></li>
+          <li><a href="https://radova.org/about/" data-i18n="nav.about">About</a></li>
+          <li><a href="https://radova.org/about/history" data-i18n="nav.history">History</a></li>
+          <li><a href="https://radova.org/latest/" data-i18n="nav.latest">Latest</a></li>
+          <li><a href="https://radova.org/events" data-i18n="nav.events">Events</a></li>
         </ul>
       </nav>
 
       <nav class="footer-col" aria-label="Resources">
-        <h3 class="footer-heading">Resources</h3>
+        <h3 class="footer-heading" data-i18n="footer.col2">Resources</h3>
         <ul class="footer-links">
-          <li><a target="_blank" rel="noopener" href="https://packer.radova.org">Packages</a></li>
-          <li><a target="_blank" rel="noopener" href="https://wiki.radova.org">Wiki</a></li>
-          <li><a href="https://radova.org/learns">Learning</a></li>
-          <li><a href="https://sourceforge.net/projects/memora/files/radova-linux-2026.11.06-x86_64.iso/download">Download ISO</a></li>
+          <li><a target="_blank" rel="noopener" href="https://packer.radova.org" data-i18n="nav.packages">Packages</a></li>
+          <li><a target="_blank" rel="noopener" href="https://wiki.radova.org" data-i18n="nav.wiki">Wiki</a></li>
+          <li><a href="https://radova.org/learns" data-i18n="nav.learning">Learning</a></li>
+          <li><a href="https://sourceforge.net/projects/memora/files/radova-linux-2026.11.06-x86_64.iso/download" data-i18n="footer.download">Download ISO</a></li>
         </ul>
       </nav>
 
       <nav class="footer-col" aria-label="Core Pillars">
-        <h3 class="footer-heading">Core Pillars</h3>
+        <h3 class="footer-heading" data-i18n="footer.col3">Core Pillars</h3>
         <ul class="footer-links">
           <li><a href="https://radova.org/#fitur">Memora</a></li>
           <li><a href="https://radova.org/#fitur">Evrocks</a></li>
@@ -157,11 +157,11 @@
       </nav>
 
       <nav class="footer-col" aria-label="Help and Specs">
-        <h3 class="footer-heading">Help &amp; Specs</h3>
+        <h3 class="footer-heading" data-i18n="footer.col4">Help &amp; Specs</h3>
         <ul class="footer-links">
-          <li><a href="https://radova.org/about/contact">Contact</a></li>
-          <li><a href="https://radova.org/#spesifikasi">System Requirements</a></li>
-          <li><a href="https://radova.org/latest/security/">Security Advisories</a></li>
+          <li><a href="https://radova.org/about/contact" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="https://radova.org/#spesifikasi" data-i18n="footer.specs">System Requirements</a></li>
+          <li><a href="https://radova.org/latest/security/" data-i18n="footer.security">Security Advisories</a></li>
         </ul>
       </nav>
     </div>
@@ -172,10 +172,10 @@
           <img src="https://radova.org/assets/logo-white.png" alt="Radova Logo" width="28">
           <span class="brand-name">RADOVA</span>
         </span>
-        <p class="footer-copy">© 2026 yuros.org · Released under the MIT License</p>
+        <p class="footer-copy" data-i18n="footer.copy">© 2026 yuros.org · Released under the MIT License</p>
       </div>
 
-      <a class="footer-top" href="#main">Back to top ↑</a>
+      <a class="footer-top" href="#main" data-i18n="footer.top">Back to top ↑</a>
     </div>
   </footer>
 </body>
