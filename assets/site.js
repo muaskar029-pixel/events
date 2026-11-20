@@ -190,11 +190,11 @@ document.addEventListener("DOMContentLoaded", function () {
       "events.redirect.lead": "Mengalihkan ke",
       "events.redirect.notice": "Jika tidak dialihkan otomatis, buka",
       "events.schedule.title": "Acara",
-      "events.schedule.lead": "Workshop Linux dan bootcamp 4 minggu secara langsung. Semua jam dalam UTC+7.",
+      "events.schedule.lead": "Workshop Linux dan bootcamp 4 minggu secara langsung. Semua jam dalam WIB (UTC+7).",
       "events.bootcamp.title": "Bootcamp",
-      "events.bootcamp.lead": "Program 4 minggu dengan tugas mingguan dan review mentor langsung. Semua jam dalam UTC+7.",
+      "events.bootcamp.lead": "Program 4 minggu dengan tugas mingguan dan review mentor langsung. Semua jam dalam WIB (UTC+7).",
       "events.workshop.title": "Workshop",
-      "events.workshop.lead": "Sesi praktik Linux langsung selama 2 jam untuk satu topik teknis. Semua jam dalam UTC+7.",
+      "events.workshop.lead": "Sesi praktik Linux langsung selama 2 jam untuk satu topik teknis. Semua jam dalam WIB (UTC+7).",
       "events.all": "Semua Acara",
       "events.workshop": "Workshop",
       "events.bootcamp": "Bootcamp",
@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "events.bc.s4": "Sidang akhir: rilis dan pertahankan repositori paket Radova bertanda tangan.",
       "events.bc.p1": "Fasih Linux CLI, Git, dan shell scripting.",
       "events.bc.p2": "Menjalankan Radova Linux 2026.11+ secara lokal atau di VM.",
-      "events.bc.p3": "Hadir di empat sesi live hari Senin (19:00–21:00 UTC+7).",
+      "events.bc.p3": "Hadir di empat sesi live hari Senin (19:00–21:00 WIB / UTC+7).",
       "events.bc.mentorDesc": "Tim Inti Radova · Maintainer infrastruktur packaging Radova, Memora, dan Coretez.",
       "events.bc.note": "Dipandu oleh Tim Inti Radova · Kohort Online · Gratis · 20 peserta"
     };
