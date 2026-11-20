@@ -68,10 +68,10 @@
   <main id="main" class="site-main" data-event-tab="all" tabindex="-1">
     <section class="hero-split" aria-labelledby="page-title">
       <div class="hero-title-col">
-        <h1 id="page-title" data-i18n="events.schedule.title">Schedule</h1>
+        <h1 id="page-title" data-i18n="events.schedule.title">Events</h1>
       </div>
       <div class="hero-lead-col">
-        <p class="hero-lead" data-i18n="events.schedule.lead">Live Linux labs and multi-week engineering cohorts. Pick a single-evening drill or commit to a full track.</p>
+        <p class="hero-lead" data-i18n="events.schedule.lead">Live Linux workshops and 4-week bootcamps. All times in UTC+7.</p>
       </div>
     </section>
 
@@ -84,17 +84,16 @@
         <a href="bootcamp/" data-i18n="events.bootcamp">Bootcamp</a>
       </nav>
       <div class="control-meta">
+        <span class="control-count" data-i18n="events.slot2">2 Upcoming</span>
         <span class="nav-sep" aria-hidden="true">·</span>
-        <span class="control-count" data-i18n="events.slot2">2 Upcoming Slots</span>
-        <span class="nav-sep" aria-hidden="true">·</span>
-        <a class="control-jump" href="#past-events" data-i18n="events.pastJump">Past Archive ↓</a>
+        <a class="control-jump" href="#past-events" data-i18n="events.pastJump">Past Events ↓</a>
       </div>
     </div>
 
     <section class="timetable-section" aria-labelledby="upcoming-heading">
       <div class="section-bar">
-        <h2 id="upcoming-heading" data-i18n="events.upcoming">Upcoming Schedule</h2>
-        <span class="section-bar-note" data-i18n="events.closest">Next Up First</span>
+        <h2 id="upcoming-heading" data-i18n="events.upcoming">Upcoming</h2>
+        <span class="section-bar-note" data-i18n="events.closest">Earliest First</span>
       </div>
       <ul class="timetable-grid" hx-boost="true" hx-select="main" hx-target="main" hx-swap="outerHTML" hx-push-url="true">
         <li class="timetable-col">
@@ -108,7 +107,7 @@
               <p class="slot-speaker" data-i18n="events.card.seats30">Online · 30 seats</p>
             </div>
             <div class="slot-footer">
-              <span class="slot-time">19:00   </span>
+              <span class="slot-time">19:00 UTC+7</span>
               <span class="badge badge-open" data-i18n="events.open">Open</span>
             </div>
           </div>
@@ -124,7 +123,7 @@
               <p class="slot-speaker" data-i18n="events.card.seats20">Online · 20 seats</p>
             </div>
             <div class="slot-footer">
-              <span class="slot-time">19:00   </span>
+              <span class="slot-time">19:00 UTC+7</span>
               <span class="badge badge-open" data-i18n="events.open">Open</span>
             </div>
           </div>
@@ -134,10 +133,10 @@
 
     <section id="past-events" class="archive-section" aria-labelledby="past-heading">
       <div class="section-bar">
-        <h2 id="past-heading" data-i18n="events.past">Past Archive</h2>
-        <span class="section-bar-note" data-i18n="events.newest">Newest First</span>
+        <h2 id="past-heading" data-i18n="events.past">Past Events</h2>
+        <span class="section-bar-note" data-i18n="events.newest">Latest First</span>
       </div>
-      <p class="empty-notice" data-i18n="events.empty.all">No past sessions yet. Completed events archive here.</p>
+      <p class="empty-notice" data-i18n="events.empty.all">No past events yet.</p>
     </section>
   </main>
 

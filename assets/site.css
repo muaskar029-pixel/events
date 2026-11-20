@@ -1869,245 +1869,13 @@ nav.footer-col {
   }
 }
 
-/* --- Tab 2: Workshop (Vertical Editorial Index Strip — Clipped Numerals 01/02/03, 100% Radova Palette) --- */
-.site-main[data-event-tab="workshop"] .hero-split {
-  margin-top: 1.75rem;
-  padding: 2rem 0 2.25rem;
-  border-radius: 0;
-  border: 0;
-  border-bottom: 1.5px solid var(--radova-text);
-  background: none;
-  gap: 1.25rem 2.5rem;
-}
-
-.site-main[data-event-tab="workshop"] .hero-split h1 {
-  color: var(--radova-text);
-  letter-spacing: -0.035em;
-}
-
-.site-main[data-event-tab="workshop"] .hero-lead-col {
-  padding: 0;
-  border: 0;
-  background: none;
-  box-shadow: none;
-}
-
-.site-main[data-event-tab="workshop"] .timetable-section {
-  margin-top: 2.5rem;
-}
-
-.site-main[data-event-tab="workshop"] .section-bar {
-  border-bottom: 0;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0;
-}
-
-.site-main[data-event-tab="workshop"] .section-bar h2 {
-  color: var(--radova-text);
-}
-
-/* Signature Vertical Column Index Grid with Left-Clipped Numerals (01, 02, 03...) */
-.site-main[data-event-tab="workshop"] .timetable-grid,
-.site-main[data-event-tab="workshop"] .archive-grid {
-  counter-reset: ws-col;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-}
-
-.site-main[data-event-tab="workshop"] .timetable-col,
-.site-main[data-event-tab="workshop"] .timetable-col:only-child {
-  counter-increment: ws-col;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 23rem;
-  padding: 1.5rem 0 2.5rem;
-  border: 0;
-  border-inline-start: 1.5px solid var(--radova-text);
-  border-inline-end: 1.5px solid var(--radova-text);
-  border-radius: 0;
-  background-color: var(--radova-bg);
-  box-shadow: none;
-  overflow: hidden;
-  transition: background-color 200ms var(--radova-ease);
-}
-
-.site-main[data-event-tab="workshop"] .timetable-col::before {
-  content: counter(ws-col, decimal-leading-zero);
-  display: block;
-  margin-inline-start: -0.18em;
-  font-family: var(--font-heading);
-  font-size: clamp(3.75rem, 6vw, 4.85rem);
-  font-weight: 900;
-  line-height: 0.84;
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
-  color: var(--radova-text);
-  transition: color 200ms var(--radova-ease);
-}
-
-.site-main[data-event-tab="workshop"] .timetable-col:hover {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--radova-text);
-  background-color: var(--radova-surface);
-}
-
-.site-main[data-event-tab="workshop"] .timetable-col:hover::before {
-  color: var(--radova-red);
-}
-
-.site-main[data-event-tab="workshop"] .slot-date-head,
-.site-main[data-event-tab="workshop"] .timetable-col:only-child .slot-date-head {
-  padding: 0.65rem 1.35rem 0;
-  border: 0;
-  background: transparent;
-  display: block;
-}
-
-.site-main[data-event-tab="workshop"] .slot-date-head h2 {
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: none;
-  color: var(--radova-muted);
-}
-
-.site-main[data-event-tab="workshop"] .slot-body,
-.site-main[data-event-tab="workshop"] .timetable-col:only-child .slot-body {
-  padding: 3rem 1.35rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 1rem;
-  background: transparent;
-}
-
-.site-main[data-event-tab="workshop"] .slot-body::after {
-  content: "\2197";
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 1.65rem;
-  line-height: 1;
-  font-weight: 400;
-  color: var(--radova-text);
-  transition: transform 200ms var(--radova-ease), color 200ms var(--radova-ease);
-}
-
-.site-main[data-event-tab="workshop"] .timetable-col:hover .slot-body::after {
-  color: var(--radova-red);
-  transform: translate(3px, -3px);
-}
-
-.site-main[data-event-tab="workshop"] .slot-meta-tag {
-  margin-bottom: 0.45rem;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  color: var(--radova-muted);
-}
-
-.site-main[data-event-tab="workshop"] .slot-title {
-  margin: 0 0 0.5rem;
-  font-size: 1.25rem;
-  font-weight: 900;
-  line-height: 1.25;
-  color: var(--radova-text);
-}
-
-.site-main[data-event-tab="workshop"] .slot-speaker {
-  font-size: 0.8125rem;
-  color: var(--radova-muted);
-}
-
-.site-main[data-event-tab="workshop"] .slot-footer,
-.site-main[data-event-tab="workshop"] .timetable-col:only-child .slot-footer {
-  margin-top: 0.5rem;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 0.4rem;
-}
-
-.site-main[data-event-tab="workshop"] .slot-time {
-  margin-bottom: 0;
-  font-size: 0.8125rem;
-  color: var(--radova-muted);
-}
-
-.site-main[data-event-tab="workshop"] .archive-item {
-  border-radius: 0;
-  border: 0;
-  border-inline-start: 1.5px solid var(--radova-text);
-  border-inline-end: 1.5px solid var(--radova-text);
-  box-shadow: none;
-  text-align: center;
-  padding: 2rem 1.35rem;
-}
-
-.site-main[data-event-tab="workshop"] .empty-notice {
-  border-radius: 0;
-  border: 0;
-  border-inline-start: 1.5px solid var(--radova-text);
-  background-color: var(--radova-surface);
-  padding: 1.5rem 1.75rem;
-}
-
-@media (min-width: 768px) {
-  .site-main[data-event-tab="workshop"] .hero-split {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: end;
-  }
-
-  .site-main[data-event-tab="workshop"] .timetable-grid,
-  .site-main[data-event-tab="workshop"] .archive-grid {
-    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  }
-
-  .site-main[data-event-tab="workshop"] .timetable-col,
-  .site-main[data-event-tab="workshop"] .archive-item {
-    border-inline-end: 0;
-  }
-
-  .site-main[data-event-tab="workshop"] .timetable-col:last-child,
-  .site-main[data-event-tab="workshop"] .archive-item:last-child {
-    border-inline-end: 1.5px solid var(--radova-text);
-  }
-
-  .site-main[data-event-tab="workshop"] .timetable-col:only-child {
-    max-width: 22rem;
-    min-height: 27rem;
-  }
-
-  .site-main[data-event-tab="workshop"] .timetable-col {
-    min-height: 27rem;
-  }
-}
-
-/* --- Tab 3: Bootcamp (Swiss Minimalist Editorial — Astro Traffic Architecture, 100% Radova Palette) --- */
-.site-main[data-event-tab="bootcamp"] {
+/* --- Tab 2 & Tab 3: Workshop & Bootcamp (Unified Swiss Minimalist Editorial — Astro Traffic Card Design) --- */
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) {
   display: block;
 }
 
 /* 1. Asymmetric Swiss Editorial Hero */
-.site-main[data-event-tab="bootcamp"] .hero-split {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-split {
   position: relative;
   margin-top: 2rem;
   padding: 0;
@@ -2121,14 +1889,14 @@ nav.footer-col {
   align-items: stretch;
 }
 
-.site-main[data-event-tab="bootcamp"] .hero-title-col {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-title-col {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 1rem 0 0;
 }
 
-.site-main[data-event-tab="bootcamp"] .hero-title-col::before {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-title-col::before {
   content: "";
   display: block;
   width: 7px;
@@ -2137,7 +1905,7 @@ nav.footer-col {
   background-color: var(--radova-red);
 }
 
-.site-main[data-event-tab="bootcamp"] .hero-split h1 {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-split h1 {
   margin: 0;
   font-family: var(--font-heading);
   font-weight: 900;
@@ -2148,7 +1916,7 @@ nav.footer-col {
   color: var(--radova-text);
 }
 
-.site-main[data-event-tab="bootcamp"] .hero-lead-col {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-lead-col {
   position: relative;
   padding: 2rem 2rem 5.25rem;
   border: 0;
@@ -2160,7 +1928,7 @@ nav.footer-col {
   min-height: 15.5rem;
 }
 
-.site-main[data-event-tab="bootcamp"] .hero-lead-col::after {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-lead-col::after {
   content: "\2197";
   position: absolute;
   inset-inline-start: 0;
@@ -2175,7 +1943,7 @@ nav.footer-col {
   font-weight: 700;
 }
 
-.site-main[data-event-tab="bootcamp"] .hero-lead {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-lead {
   margin: 0;
   max-width: 38ch;
   font-size: 0.9375rem;
@@ -2184,16 +1952,16 @@ nav.footer-col {
 }
 
 /* 2. Section Headers (Left micro-note + crimson square, Right oversized uppercase display heading) */
-.site-main[data-event-tab="bootcamp"] .timetable-section {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-section {
   margin-top: 3.5rem;
   padding-bottom: 0;
 }
 
-.site-main[data-event-tab="bootcamp"] .archive-section {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .archive-section {
   margin-top: 4.5rem;
 }
 
-.site-main[data-event-tab="bootcamp"] .section-bar {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .section-bar {
   margin-bottom: 2rem;
   padding-bottom: 1.25rem;
   border-bottom: 1px solid var(--radova-border);
@@ -2204,7 +1972,7 @@ nav.footer-col {
   gap: 0.75rem 2rem;
 }
 
-.site-main[data-event-tab="bootcamp"] .section-bar h2 {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .section-bar h2 {
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: clamp(1.65rem, 3.6vw, 2.65rem);
@@ -2214,7 +1982,7 @@ nav.footer-col {
   color: var(--radova-text);
 }
 
-.site-main[data-event-tab="bootcamp"] .section-bar-note {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .section-bar-note {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -2225,7 +1993,7 @@ nav.footer-col {
   color: var(--radova-muted);
 }
 
-.site-main[data-event-tab="bootcamp"] .section-bar-note::before {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .section-bar-note::before {
   content: "";
   display: inline-block;
   width: 6px;
@@ -2234,14 +2002,14 @@ nav.footer-col {
   flex-shrink: 0;
 }
 
-/* 4. Upcoming Schedule: "01 / 02 / 03" Numbered Swiss Editorial Rows */
-.site-main[data-event-tab="bootcamp"] .timetable-grid {
+/* 3. Upcoming Schedule: "01 / 02 / 03" Numbered Swiss Editorial Rows */
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-grid {
   counter-reset: cohort-row;
   grid-template-columns: 1fr;
   gap: 0;
 }
 
-.site-main[data-event-tab="bootcamp"] .timetable-col {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col {
   counter-increment: cohort-row;
   position: relative;
   display: grid;
@@ -2256,7 +2024,7 @@ nav.footer-col {
   transition: background-color 180ms var(--radova-ease);
 }
 
-.site-main[data-event-tab="bootcamp"] .timetable-col::before {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col::before {
   content: counter(cohort-row, decimal-leading-zero);
   grid-column: 1;
   grid-row: 1 / span 2;
@@ -2271,21 +2039,21 @@ nav.footer-col {
   padding-top: 0.1rem;
 }
 
-.site-main[data-event-tab="bootcamp"] .timetable-col:hover {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col:hover {
   transform: none;
   border-color: var(--radova-border);
   box-shadow: none;
   background-color: var(--radova-surface);
 }
 
-.site-main[data-event-tab="bootcamp"] .slot-date-head {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .slot-date-head {
   grid-column: 2;
   padding: 0;
   border: 0;
   background: transparent;
 }
 
-.site-main[data-event-tab="bootcamp"] .slot-date-head h2 {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .slot-date-head h2 {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
@@ -2293,7 +2061,7 @@ nav.footer-col {
   color: var(--radova-accent);
 }
 
-.site-main[data-event-tab="bootcamp"] .slot-body {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .slot-body {
   grid-column: 2;
   padding: 0;
   background: transparent;
@@ -2302,7 +2070,7 @@ nav.footer-col {
   gap: 0.85rem;
 }
 
-.site-main[data-event-tab="bootcamp"] .slot-meta-tag {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .slot-meta-tag {
   margin-bottom: 0.35rem;
   padding: 0;
   border: 0;
@@ -2312,7 +2080,7 @@ nav.footer-col {
   font-size: 0.7rem;
 }
 
-.site-main[data-event-tab="bootcamp"] .slot-title {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .slot-title {
   margin: 0 0 0.35rem;
   font-size: clamp(1.15rem, 2.2vw, 1.45rem);
   font-weight: 700;
@@ -2321,7 +2089,7 @@ nav.footer-col {
   color: var(--radova-text);
 }
 
-.site-main[data-event-tab="bootcamp"] .slot-footer {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .slot-footer {
   margin-top: 0;
   padding-top: 0;
   border-top: 0;
@@ -2331,24 +2099,24 @@ nav.footer-col {
   gap: 0.5rem 1rem;
 }
 
-.site-main[data-event-tab="bootcamp"] .slot-time {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .slot-time {
   margin-bottom: 0;
   font-size: 0.875rem;
   color: var(--radova-text);
 }
 
-.site-main[data-event-tab="bootcamp"] .badge {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .badge {
   border-radius: 0;
 }
 
-/* 5. Past Events Archive: Flat Minimal #F7F6FF Editorial Cards (3-Column Grid) */
-.site-main[data-event-tab="bootcamp"] .archive-grid {
+/* 4. Past Events Archive: Flat Minimal #F7F6FF Editorial Cards (3-Column Grid) */
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .archive-grid {
   grid-template-columns: 1fr;
   gap: 1.25rem;
 }
 
-.site-main[data-event-tab="bootcamp"] .archive-item,
-.site-main[data-event-tab="bootcamp"] .empty-notice {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .archive-item,
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .empty-notice {
   padding: 1.75rem 1.6rem;
   border-radius: 0;
   border: 0;
@@ -2357,13 +2125,13 @@ nav.footer-col {
   transition: background-color 180ms var(--radova-ease);
 }
 
-.site-main[data-event-tab="bootcamp"] .archive-item:hover {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .archive-item:hover {
   transform: none;
   box-shadow: none;
   background-color: var(--radova-dock);
 }
 
-.site-main[data-event-tab="bootcamp"] .empty-notice {
+.site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .empty-notice {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -2374,8 +2142,18 @@ nav.footer-col {
   line-height: 1.6;
 }
 
+.site-main[data-event-tab="workshop"] .empty-notice::before {
+  content: "ARCHIVE // WORKSHOPS";
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--radova-muted);
+}
+
 .site-main[data-event-tab="bootcamp"] .empty-notice::before {
-  content: "ARCHIVE // RADOVA COHORTS";
+  content: "ARCHIVE // BOOTCAMPS";
   display: block;
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -2385,19 +2163,19 @@ nav.footer-col {
 }
 
 @media (min-width: 768px) {
-  .site-main[data-event-tab="bootcamp"] .hero-split {
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-split {
     margin-top: 2.5rem;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
     gap: 3rem;
   }
 
-  .site-main[data-event-tab="bootcamp"] .hero-lead-col {
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-lead-col {
     min-height: 20rem;
     padding: 2.5rem 2.5rem 6.5rem;
   }
 
-  .site-main[data-event-tab="bootcamp"] .timetable-col,
-  .site-main[data-event-tab="bootcamp"] .timetable-col:only-child {
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col,
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col:only-child {
     display: grid;
     grid-template-columns: 5.5rem 11rem minmax(0, 1fr);
     align-items: start;
@@ -2405,20 +2183,20 @@ nav.footer-col {
     padding: 2rem 1rem;
   }
 
-  .site-main[data-event-tab="bootcamp"] .timetable-col::before {
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col::before {
     grid-row: 1;
   }
 
-  .site-main[data-event-tab="bootcamp"] .timetable-col .slot-date-head,
-  .site-main[data-event-tab="bootcamp"] .timetable-col:only-child .slot-date-head {
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col .slot-date-head,
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col:only-child .slot-date-head {
     grid-column: 2;
     padding: 0.2rem 0 0;
     border: 0;
     background: transparent;
   }
 
-  .site-main[data-event-tab="bootcamp"] .timetable-col .slot-body,
-  .site-main[data-event-tab="bootcamp"] .timetable-col:only-child .slot-body {
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col .slot-body,
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col:only-child .slot-body {
     grid-column: 3;
     padding: 0;
     display: grid;
@@ -2427,8 +2205,8 @@ nav.footer-col {
     gap: 1.75rem;
   }
 
-  .site-main[data-event-tab="bootcamp"] .timetable-col .slot-footer,
-  .site-main[data-event-tab="bootcamp"] .timetable-col:only-child .slot-footer {
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col .slot-footer,
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col:only-child .slot-footer {
     margin-top: 0;
     padding-top: 0;
     border-top: 0;
@@ -2438,13 +2216,13 @@ nav.footer-col {
     gap: 0.45rem;
   }
 
-  .site-main[data-event-tab="bootcamp"] .archive-grid {
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .archive-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (min-width: 1024px) {
-  .site-main[data-event-tab="bootcamp"] .archive-grid {
+  .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .archive-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
@@ -2674,27 +2452,17 @@ button.btn-theme:active {
   color: #FFFFFF;
 }
 
-:root[data-theme="dark"] .site-main[data-event-tab="bootcamp"] .hero-split {
+:root[data-theme="dark"] .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-split {
   background: none;
 }
 
-:root[data-theme="dark"] .site-main[data-event-tab="bootcamp"] .hero-lead-col {
+:root[data-theme="dark"] .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-lead-col {
   background: linear-gradient(180deg, #150B52 0% 62%, #DB000F 62% 100%);
 }
 
-:root[data-theme="dark"] .site-main[data-event-tab="bootcamp"] .hero-lead-col::after {
+:root[data-theme="dark"] .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-lead-col::after {
   background-color: #0B0711;
   color: #FFFFFF;
-}
-
-:root[data-theme="dark"] .site-main[data-event-tab="workshop"] .hero-split {
-  background: none;
-  border-bottom-color: rgba(196, 192, 212, 0.32);
-}
-
-:root[data-theme="dark"] .site-main[data-event-tab="workshop"] .timetable-col,
-:root[data-theme="dark"] .site-main[data-event-tab="workshop"] .archive-item {
-  border-color: rgba(196, 192, 212, 0.32);
 }
 
 @media (max-width: 767px) {
