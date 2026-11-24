@@ -50,11 +50,11 @@
           <li class="dropdown">
             <button type="button" id="about-menu-btn" class="btn-navy" aria-haspopup="true" aria-expanded="false" data-i18n="nav.about">About</button>
             <div class="menu-arrow" aria-hidden="true"></div>
-            <div class="dropdown-content" role="menu">
-              <a class="d-content-h" href="https://radova.org/about/" role="menuitem" data-i18n="nav.about">About</a>
-              <a class="d-content-r" href="https://radova.org/about/history" role="menuitem" data-i18n="nav.history">History</a>
-              <a class="d-content-c" href="https://radova.org/about/contact" role="menuitem" data-i18n="nav.contact">Contact</a>
-              <button type="button" class="d-content-back" role="menuitem" data-i18n="nav.back">Back</button>
+            <div class="dropdown-content">
+              <a class="d-content-h" href="https://radova.org/about/" data-i18n="nav.about">About</a>
+              <a class="d-content-r" href="https://radova.org/about/history" data-i18n="nav.history">History</a>
+              <a class="d-content-c" href="https://radova.org/about/contact" data-i18n="nav.contact">Contact</a>
+              <button type="button" class="d-content-back" data-i18n="nav.back">Back</button>
             </div>
           </li>
         </ul>
@@ -70,7 +70,7 @@
     <button
       type="button"
       class="nav-toggle"
-      aria-label="Buka menu navigasi"
+      aria-label="Open navigation menu"
       aria-controls="primary-nav"
       aria-expanded="false"
     >
@@ -166,7 +166,7 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <nav class="footer-col" aria-label="Learn About Radova">
-        <h3 class="footer-heading" data-i18n="footer.col1">Learn About Radova</h3>
+        <h2 class=\"footer-heading\" data-i18n="footer.col1">Learn About Radova</h2>
         <ul class="footer-links">
           <li><a href="https://radova.org/about/" data-i18n="nav.about">About</a></li>
           <li><a href="https://radova.org/about/history" data-i18n="nav.history">History</a></li>
@@ -176,7 +176,7 @@
       </nav>
 
       <nav class="footer-col" aria-label="Resources">
-        <h3 class="footer-heading" data-i18n="footer.col2">Resources</h3>
+        <h2 class=\"footer-heading\" data-i18n="footer.col2">Resources</h2>
         <ul class="footer-links">
           <li><a target="_blank" rel="noopener" href="https://packer.radova.org" data-i18n="nav.packages">Packages</a></li>
           <li><a target="_blank" rel="noopener" href="https://wiki.radova.org" data-i18n="nav.wiki">Wiki</a></li>
@@ -186,7 +186,7 @@
       </nav>
 
       <nav class="footer-col" aria-label="Core Pillars">
-        <h3 class="footer-heading" data-i18n="footer.col3">Core Pillars</h3>
+        <h2 class=\"footer-heading\" data-i18n="footer.col3">Core Pillars</h2>
         <ul class="footer-links">
           <li><a href="https://radova.org/#fitur">Memora</a></li>
           <li><a href="https://radova.org/#fitur">Evrocks</a></li>
@@ -196,7 +196,7 @@
       </nav>
 
       <nav class="footer-col" aria-label="Help and Specs">
-        <h3 class="footer-heading" data-i18n="footer.col4">Help &amp; Specs</h3>
+        <h2 class=\"footer-heading\" data-i18n="footer.col4">Help &amp; Specs</h2>
         <ul class="footer-links">
           <li><a href="https://radova.org/about/contact" data-i18n="nav.contact">Contact</a></li>
           <li><a href="https://radova.org/#spesifikasi" data-i18n="footer.specs">System Requirements</a></li>
@@ -208,7 +208,7 @@
     <div class="footer-bottom">
       <div class="footer-brand-bar">
         <span class="brand-lockup brand-lockup-light">
-          <img src="../../assets/logo.png" alt="Radova Logo" width="28" height="28">
+          <img src="../../assets/logo.png" alt="Radova Logo" width="28" height="28" loading="lazy" decoding="async">
           <span class="brand-name">RADOVA</span>
         </span>
         <p class="footer-copy" data-i18n="footer.copy">© 2026 yuros.org · Released under the MIT License</p>
@@ -217,6 +217,6 @@
       <a class="footer-top" href="#main" data-i18n="footer.top">Back to top ↑</a>
     </div>
   </footer>
-  <script>(function(w,d){var E=["pointerdown","keydown","touchstart","scroll","wheel","mouseover","focusin"],o={passive:true,capture:true},t=0;function u(){var b=d.querySelector('link[rel="icon"]').href.replace(/favicon\.svg.*$/,""),l=d.createElement("link");l.rel="stylesheet";l.href=b+"css/fonts.css";d.head.appendChild(l);["htmx.min.js","js/events.bundle.js"].forEach(function(s){var e=d.createElement("script");e.src=b+s;e.async=false;d.body.appendChild(e)})}function go(){if(t)return;t=1;E.forEach(function(e){w.removeEventListener(e,go,o)});d.readyState==="complete"?u():w.addEventListener("load",u,{once:true})}d.addEventListener("click",function(e){var b=!w.radovaReady&&e.target.closest&&e.target.closest("button");if(b)w.radovaPendingClick=b},true);E.forEach(function(e){w.addEventListener(e,go,o)});try{if(localStorage.getItem("radova-lang")==="id"||localStorage.getItem("radova-theme")==="dark")go()}catch(_){}})(window,document)</script>
+  <script src="{{ASSET_PREFIX}}js/loader.js" defer></script>
 </body>
 </html>

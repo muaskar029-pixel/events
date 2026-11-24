@@ -194,7 +194,7 @@ body > header.site-header,
   font-weight: 500;
   color: #0E0347;
   text-decoration: none;
-  transition: color 200ms cubic-bezier(.2,.7,.2,1);
+  
 }
 
 .nav-list a:hover {
@@ -245,7 +245,7 @@ nav.navbar li :where(a, [role="link"]) {
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
 .dropdown-content::before {
@@ -289,7 +289,7 @@ nav.navbar li :where(a, [role="link"]) {
   border-bottom: 1px solid #F0F0F0;
   border-radius: 0;
   cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  
   white-space: nowrap;
 }
 
@@ -325,7 +325,7 @@ nav.navbar li :where(a, [role="link"]) {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 10px solid #A3A3A3;
+  border-bottom: 10px solid rgba(14, 3, 71, 0.14);
   z-index: 1000;
   display: none;
   margin-top: 8px;
@@ -348,7 +348,7 @@ nav.navbar li :where(a, [role="link"]) {
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 16px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  
   display: inline-block;
   text-decoration: none;
   line-height: normal;
@@ -379,7 +379,7 @@ nav.navbar li :where(a, [role="link"]) {
   border: 1px solid var(--radova-border);
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  
 }
 
 .nav-toggle:hover {
@@ -547,7 +547,7 @@ button.btn-lang {
   border-radius: 16px;
   cursor: pointer;
   line-height: normal;
-  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  
 }
 
 button.btn-lang:hover {
@@ -593,7 +593,7 @@ button.btn-lang:hover {
   text-transform: uppercase;
   color: var(--radova-muted);
   text-decoration: none;
-  transition: color 180ms var(--radova-ease), background-color 180ms var(--radova-ease), border-color 180ms var(--radova-ease), transform 140ms var(--radova-ease);
+  transition: transform 140ms var(--radova-ease);
 }
 
 .events-nav a:hover {
@@ -708,7 +708,7 @@ nav.footer-col {
   font-size: 14px;
   font-weight: 400;
   text-decoration: none;
-  transition: color 160ms ease;
+  
 }
 
 .footer-links a:hover {
@@ -765,7 +765,7 @@ nav.footer-col {
   padding: 0.45rem 0.9rem;
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 999px;
-  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
+  
 }
 
 .footer-top:hover {
@@ -903,9 +903,8 @@ nav.footer-col {
   border-radius: var(--radova-radius);
   overflow: hidden;
   box-shadow: var(--radova-shadow-card);
-  transition: transform 200ms var(--radova-ease), border-color 200ms var(--radova-ease), box-shadow 200ms var(--radova-ease);
+  transition: transform 200ms var(--radova-ease);
 }
-
 
 .timetable-col:has(.slot-title a:focus-visible) {
   outline: 2px solid var(--tab-accent-vivid);
@@ -936,7 +935,7 @@ nav.footer-col {
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--radova-bg);
-  transition: background-color 180ms var(--radova-ease);
+  
 }
 
 .slot-body:active {
@@ -980,7 +979,7 @@ nav.footer-col {
 .slot-title a {
   color: inherit;
   text-decoration: none;
-  transition: color 160ms var(--radova-ease);
+  
 }
 
 .slot-title a::after {
@@ -1130,7 +1129,7 @@ nav.footer-col {
   border: 1px solid var(--radova-border);
   border-radius: var(--radova-radius-md);
   box-shadow: var(--radova-shadow-card);
-  transition: transform 200ms var(--radova-ease), border-color 200ms var(--radova-ease), box-shadow 200ms var(--radova-ease);
+  transition: transform 200ms var(--radova-ease);
 }
 
 @media (hover: hover) {
@@ -1158,7 +1157,7 @@ nav.footer-col {
 .archive-item h3 a {
   color: inherit;
   text-decoration: none;
-  transition: color 160ms var(--radova-ease);
+  
 }
 
 .archive-item h3 a::after {
@@ -1223,7 +1222,7 @@ nav.footer-col {
   text-transform: uppercase;
   color: var(--radova-text);
   text-decoration: none;
-  transition: color 160ms var(--radova-ease);
+  
 }
 
 .pagination-link[rel="next"] {
@@ -1273,7 +1272,7 @@ nav.footer-col {
   font-weight: 700;
   color: var(--tab-accent);
   text-decoration: none;
-  transition: background-color 160ms var(--radova-ease), border-color 160ms var(--radova-ease), color 160ms var(--radova-ease);
+  
 }
 
 .back-link:hover {
@@ -1415,7 +1414,7 @@ nav.footer-col {
   letter-spacing: 0.05em;
   text-decoration: none;
   box-shadow: var(--tab-cta-shadow);
-  transition: background-color 180ms var(--radova-ease), transform 140ms var(--radova-ease), box-shadow 180ms var(--radova-ease);
+  transition: transform 140ms var(--radova-ease);
 }
 
 .btn-cta:hover {
@@ -1647,7 +1646,7 @@ nav.footer-col {
     radial-gradient(80% 85% at 92% 10%, rgba(219, 0, 15, 0.42), transparent 65%),
     linear-gradient(145deg, #0E0347 0%, #1b0868 100%);
   background-size: 16px 16px, auto, auto;
-  transition: transform 220ms var(--radova-ease), box-shadow 220ms var(--radova-ease), border-color 220ms var(--radova-ease);
+  transition: transform 220ms var(--radova-ease);
 }
 
 /* Alternating Radova Crimson Shot Frame for even cards */
@@ -1693,7 +1692,7 @@ nav.footer-col {
   display: grid;
   place-items: center;
   font-size: 0.9rem;
-  transition: background-color 180ms var(--radova-ease), transform 180ms var(--radova-ease);
+  transition: transform 180ms var(--radova-ease);
 }
 
 .site-main[data-event-tab="all"] .timetable-col:hover .slot-date-head::after {
@@ -1948,7 +1947,7 @@ nav.footer-col {
   border-radius: 0;
   background-color: transparent;
   box-shadow: none;
-  transition: background-color 180ms var(--radova-ease);
+  
 }
 
 .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col::before {
@@ -2049,7 +2048,7 @@ nav.footer-col {
   border: 0;
   background-color: var(--radova-surface);
   box-shadow: none;
-  transition: background-color 180ms var(--radova-ease);
+  
 }
 
 .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .archive-item:hover {
@@ -2197,7 +2196,6 @@ nav.footer-col {
   }
 }
 
-
 /* ==========================================================================
    Dark Mode Toggle Button & Official Radova Dark Palette (darkmode.pdf)
    Background: #0B0711 | Card: #150B52 | Deep Navy: #0E0347
@@ -2220,7 +2218,7 @@ button.btn-theme {
   color: #0E0347;
   cursor: pointer;
   flex-shrink: 0;
-  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease, transform 140ms ease;
+  transition: transform 140ms ease;
 }
 
 button.btn-theme + button.btn-lang {
