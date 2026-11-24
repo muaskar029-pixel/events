@@ -2,13 +2,16 @@
 
 ## URL & Folder Structure
 
-- `/events/` -> `events/index.html`
-- `/events/workshop/` -> `events/workshop/index.html`
-- `/events/bootcamp/` -> `events/bootcamp/index.html`
-- `/events/<type>/<slug>/` -> `events/<type>/<slug>/index.html`
-- `/events/<type>/page/<n>/` -> `events/<type>/page/<n>/index.html`
+- `/events/` -> `index.html`
+- `/events/workshop/` -> `workshop/index.html`
+- `/events/bootcamp/` -> `bootcamp/index.html`
+- `/events/<type>/<slug>/` -> `<type>/<slug>/index.html`
+- `/events/<type>/page/<n>/` -> `<type>/page/<n>/index.html`
+- any missing URL -> `404.html` (uses absolute `/events/assets/` paths)
 
 Shared assets live in `assets/` and page templates live in `templates/`.
+
+Edit the readable sources `assets/site.css` and `assets/site.js`, then run `./build.sh` to regenerate `assets/css/events.bundle.css` and `assets/js/events.bundle.js` (the files pages load).
 
 ## `<meta name="radova:<field>">` Specification
 

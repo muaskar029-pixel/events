@@ -4,20 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="htmx-config" content='{"selfRequestsOnly":true,"allowScriptTags":false,"allowEval":false}'>
-  <meta http-equiv="refresh" content="0; url=events/">
-  <title>Radova Events</title>
-  <meta name="htmx-config" content='{"selfRequestsOnly":true,"allowScriptTags":false,"allowEval":false}'>
-  <link rel="stylesheet" href="assets/pico.min.css">
-  <link rel="stylesheet" href="assets/site.css">
-  <script src="assets/htmx.min.js" defer></script>
-  <script src="assets/site.js" defer></script>
+  <title>All Events — Radova Events</title>
+  <meta name="description" content="Live Linux workshops and 4-week bootcamps from the Radova team. All times in WIB (UTC+7).">
+  <link rel="canonical" href="https://radova.org/events/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <script>try{if(localStorage.getItem("radova-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(_){}</script>
+  <link rel="stylesheet" href="assets/css/events.bundle.css">
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="site-header">
     <a class="brand-lockup" href="https://radova.org/">
-      <img src="assets/logo.png" alt="Radova Logo" width="32">
+      <img src="assets/logo.png" alt="Radova Logo" width="32" height="32">
       <span class="brand-name">RADOVA</span>
     </a>
 
@@ -27,7 +26,7 @@
           <li><a target="_blank" rel="noopener" href="https://packer.radova.org" data-i18n="nav.packages">Packages</a></li>
           <li><a target="_blank" rel="noopener" href="https://wiki.radova.org" data-i18n="nav.wiki">Wiki</a></li>
           <li><a href="https://radova.org/learns" data-i18n="nav.learning">Learning</a></li>
-          <li><a href="events/" aria-current="page" data-i18n="nav.events">Events</a></li>
+          <li><a href="./" aria-current="page" data-i18n="nav.events">Events</a></li>
           <li><a href="https://radova.org/latest/" data-i18n="nav.latest">Latest</a></li>
         </ul>
       </nav>
@@ -35,7 +34,7 @@
       <nav class="navbar" aria-label="About menu">
         <ul class="nav-links">
           <li class="dropdown">
-            <a id="about-menu-btn" href="#" class="btn-navy" aria-haspopup="true" aria-expanded="false" data-i18n="nav.about">About</a>
+            <button type="button" id="about-menu-btn" class="btn-navy" aria-haspopup="true" aria-expanded="false" data-i18n="nav.about">About</button>
             <div class="menu-arrow" aria-hidden="true"></div>
             <div class="dropdown-content" role="menu">
               <a class="d-content-h" href="https://radova.org/about/" role="menuitem" data-i18n="nav.about">About</a>
@@ -48,11 +47,11 @@
       </nav>
     </div>
 
-    <button type="button" id="theme-toggle" class="btn-theme" data-set-theme="light" hx-get="assets/theme-dark.html" hx-target="#theme-toggle" hx-swap="outerHTML" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+    <button type="button" id="theme-toggle" class="btn-theme" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
       <svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M216.7 152.6A91.9 91.9 0 0 1 103.4 39.3a92 92 0 1 0 113.3 113.3Z"/></svg>
     </button>
 
-    <button type="button" id="lang-toggle" class="btn-lang" aria-label="Switch language to Indonesian">EN</button>
+    <button type="button" id="lang-toggle" class="btn-lang" aria-label="EN: switch language to Indonesian">EN</button>
 
     <button
       type="button"
@@ -70,13 +69,76 @@
   <main id="main" class="site-main" data-event-tab="all" tabindex="-1">
     <section class="hero-split" aria-labelledby="page-title">
       <div class="hero-title-col">
-        <h1 id="page-title" data-i18n="events.redirect.title">Radova Events</h1>
+        <h1 id="page-title" data-i18n="events.schedule.title">Events</h1>
       </div>
       <div class="hero-lead-col">
-        <p class="hero-lead" data-i18n-prefix="events.redirect.lead">Redirecting to <a href="events/">Events Scheduler</a>.</p>
+        <p class="hero-lead" data-i18n="events.schedule.lead">Live Linux workshops and 4-week bootcamps. All times in WIB (UTC+7).</p>
       </div>
     </section>
-    <p class="empty-notice" data-i18n-prefix="events.redirect.notice">If you are not redirected automatically, open <a href="events/">All Events</a>.</p>
+
+    <div class="control-bar">
+      <nav class="events-nav" aria-label="Events" hx-boost="true" hx-select="main" hx-target="main" hx-swap="outerHTML" hx-push-url="true">
+        <a href="./" aria-current="page" data-i18n="events.all">All Events</a>
+        <span class="nav-sep" aria-hidden="true">·</span>
+        <a href="workshop/" data-i18n="events.workshop">Workshop</a>
+        <span class="nav-sep" aria-hidden="true">·</span>
+        <a href="bootcamp/" data-i18n="events.bootcamp">Bootcamp</a>
+      </nav>
+      <div class="control-meta">
+        <span class="control-count" data-i18n="events.slot2">2 Upcoming</span>
+        <span class="nav-sep" aria-hidden="true">·</span>
+        <a class="control-jump" href="#past-events" data-i18n="events.pastJump">Past Events ↓</a>
+      </div>
+    </div>
+
+    <section class="timetable-section" aria-labelledby="upcoming-heading">
+      <div class="section-bar">
+        <h2 id="upcoming-heading" data-i18n="events.upcoming">Upcoming</h2>
+        <span class="section-bar-note" data-i18n="events.closest">Earliest First</span>
+      </div>
+      <ul class="timetable-grid" hx-boost="true" hx-select="main" hx-target="main" hx-swap="outerHTML" hx-push-url="true">
+        <li class="timetable-col">
+          <div class="slot-date-head">
+            <h2><time datetime="2026-11-24">NOV 24</time></h2>
+          </div>
+          <div class="slot-body">
+            <div>
+              <span class="slot-meta-tag" data-i18n="events.workshop">Workshop</span>
+              <h3 class="slot-title"><a href="workshop/linux-kernel-tracing-ebpf/">Linux Kernel Tracing with eBPF &amp; BCC</a></h3>
+              <p class="slot-speaker" data-i18n="events.card.seats30">Online · 30 seats</p>
+            </div>
+            <div class="slot-footer">
+              <span class="slot-time">19:00 WIB (UTC+7)</span>
+              <span class="badge badge-open" data-i18n="events.open">Open</span>
+            </div>
+          </div>
+        </li>
+        <li class="timetable-col">
+          <div class="slot-date-head">
+            <h2><time datetime="2026-12-07">DEC 07</time></h2>
+          </div>
+          <div class="slot-body">
+            <div>
+              <span class="slot-meta-tag" data-i18n="events.card.bcAll">Bootcamp · 4 Weeks</span>
+              <h3 class="slot-title"><a href="bootcamp/radova-systems-engineering-cohort/">Radova Systems Engineering &amp; Packaging Cohort</a></h3>
+              <p class="slot-speaker" data-i18n="events.card.seats20">Online · 20 seats</p>
+            </div>
+            <div class="slot-footer">
+              <span class="slot-time">19:00 WIB (UTC+7)</span>
+              <span class="badge badge-open" data-i18n="events.open">Open</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="past-events" class="archive-section" aria-labelledby="past-heading">
+      <div class="section-bar">
+        <h2 id="past-heading" data-i18n="events.past">Past Events</h2>
+        <span class="section-bar-note" data-i18n="events.newest">Latest First</span>
+      </div>
+      <p class="empty-notice" data-i18n="events.empty.all">No past events yet.</p>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -124,7 +186,7 @@
     <div class="footer-bottom">
       <div class="footer-brand-bar">
         <span class="brand-lockup brand-lockup-light">
-          <img src="https://radova.org/assets/logo-white.png" alt="Radova Logo" width="28">
+          <img src="assets/logo.png" alt="Radova Logo" width="28" height="28">
           <span class="brand-name">RADOVA</span>
         </span>
         <p class="footer-copy" data-i18n="footer.copy">© 2026 yuros.org · Released under the MIT License</p>
@@ -133,5 +195,6 @@
       <a class="footer-top" href="#main" data-i18n="footer.top">Back to top ↑</a>
     </div>
   </footer>
+  <script>(function(w,d){var E=["pointerdown","keydown","touchstart","scroll","wheel","mouseover","focusin"],o={passive:true,capture:true},t=0;function u(){var b=d.querySelector('link[href*="events.bundle.css"]').href.replace(/css\/events\.bundle\.css.*$/,""),l=d.createElement("link");l.rel="stylesheet";l.href=b+"css/fonts.css";d.head.appendChild(l);["htmx.min.js","js/events.bundle.js"].forEach(function(s){var e=d.createElement("script");e.src=b+s;e.async=false;d.body.appendChild(e)})}function go(){if(t)return;t=1;E.forEach(function(e){w.removeEventListener(e,go,o)});d.readyState==="complete"?u():w.addEventListener("load",u,{once:true})}d.addEventListener("click",function(e){var b=!w.radovaReady&&e.target.closest&&e.target.closest("button");if(b)w.radovaPendingClick=b},true);E.forEach(function(e){w.addEventListener(e,go,o)});try{if(localStorage.getItem("radova-lang")==="id"||localStorage.getItem("radova-theme")==="dark")go()}catch(_){}})(window,document)</script>
 </body>
 </html>
