@@ -19,17 +19,18 @@
   <meta name="radova:location" content="{{LOCATION}}">
   <meta name="radova:register_url" content="{{REGISTER_URL}}">
   <meta name="radova:status" content="{{STATUS}}">
-  <link rel="stylesheet" href="../../../assets/pico.min.css">
-  <link rel="stylesheet" href="../../../assets/site.css">
-  <script src="../../../assets/htmx.min.js" defer></script>
-  <script src="../../../assets/site.js" defer></script>
+  <meta name="description" content="{{SUMMARY}}">
+  <link rel="canonical" href="https://radova.org/events/bootcamp/{{SLUG}}/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <script>try{if(localStorage.getItem("radova-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(_){}</script>
+  <link rel="stylesheet" href="../../assets/css/events.bundle.css">
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="site-header">
     <a class="brand-lockup" href="https://radova.org/">
-      <img src="../../../assets/logo.png" alt="Radova Logo" width="32">
+      <img src="../../assets/logo.png" alt="Radova Logo" width="32" height="32">
       <span class="brand-name">RADOVA</span>
     </a>
 
@@ -47,7 +48,7 @@
       <nav class="navbar" aria-label="About menu">
         <ul class="nav-links">
           <li class="dropdown">
-            <a id="about-menu-btn" href="#" class="btn-navy" aria-haspopup="true" aria-expanded="false" data-i18n="nav.about">About</a>
+            <button type="button" id="about-menu-btn" class="btn-navy" aria-haspopup="true" aria-expanded="false" data-i18n="nav.about">About</button>
             <div class="menu-arrow" aria-hidden="true"></div>
             <div class="dropdown-content" role="menu">
               <a class="d-content-h" href="https://radova.org/about/" role="menuitem" data-i18n="nav.about">About</a>
@@ -60,7 +61,11 @@
       </nav>
     </div>
 
-    <button type="button" id="lang-toggle" class="btn-lang" aria-label="Switch language to Indonesian">EN</button>
+    <button type="button" id="theme-toggle" class="btn-theme" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+      <svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M216.7 152.6A91.9 91.9 0 0 1 103.4 39.3a92 92 0 1 0 113.3 113.3Z"/></svg>
+    </button>
+
+    <button type="button" id="lang-toggle" class="btn-lang" aria-label="EN: switch language to Indonesian">EN</button>
 
     <button
       type="button"
@@ -78,9 +83,9 @@
   <main id="main" class="site-main" data-event-tab="bootcamp" tabindex="-1">
     <header class="single-header" aria-labelledby="page-title">
       <div class="single-back-bar">
-        <a class="back-link" href="../" hx-boost="true" hx-select="main" hx-target="main" hx-swap="outerHTML" hx-push-url="true">&larr; All Bootcamps</a>
+        <a class="back-link" href="../" hx-boost="true" hx-select="main" hx-target="main" hx-swap="outerHTML" hx-push-url="true" data-i18n="events.bc.back">&larr; All Bootcamps</a>
         <div class="post-row-badges">
-          <span class="badge">Bootcamp</span>
+          <span class="badge" data-i18n="events.bootcamp">Bootcamp</span>
           <span class="nav-sep" aria-hidden="true">·</span>
           <span class="badge">{{LEVEL}}</span>
           <span class="nav-sep" aria-hidden="true">·</span>
@@ -93,19 +98,19 @@
 
       <dl class="single-facts" aria-label="Event key facts">
         <div class="single-fact">
-          <dt>When</dt>
+          <dt data-i18n="events.single.when">When</dt>
           <dd>{{START_WIB}} – {{END_WIB}} WIB</dd>
         </div>
         <div class="single-fact">
-          <dt>Where</dt>
+          <dt data-i18n="events.single.where">Where</dt>
           <dd>{{LOCATION}}</dd>
         </div>
         <div class="single-fact">
-          <dt>Quota</dt>
+          <dt data-i18n="events.single.quota">Quota</dt>
           <dd>{{QUOTA}} seats</dd>
         </div>
         <div class="single-fact">
-          <dt>Price</dt>
+          <dt data-i18n="events.single.price">Price</dt>
           <dd>{{PRICE}}</dd>
         </div>
       </dl>
@@ -114,12 +119,12 @@
     <div class="single-layout">
       <div class="editorial-prose">
         <section aria-labelledby="overview-heading">
-          <h2 id="overview-heading">Overview</h2>
+          <h2 id="overview-heading" data-i18n="events.single.overview">Overview</h2>
           <p>{{OVERVIEW}}</p>
         </section>
 
         <section aria-labelledby="syllabus-heading">
-          <h2 id="syllabus-heading">Syllabus</h2>
+          <h2 id="syllabus-heading" data-i18n="events.single.syllabus">Syllabus</h2>
           <ol class="syllabus-timeline">
             <li>
               <span class="timeline-label">{{MODULE_LABEL}}</span>
@@ -129,21 +134,21 @@
         </section>
 
         <section aria-labelledby="prerequisites-heading">
-          <h2 id="prerequisites-heading">Prerequisites</h2>
+          <h2 id="prerequisites-heading" data-i18n="events.single.prereq">Prerequisites</h2>
           <ul>
             <li>{{PREREQUISITE_ITEM}}</li>
           </ul>
         </section>
 
         <section aria-labelledby="schedule-heading">
-          <h2 id="schedule-heading">Schedule</h2>
+          <h2 id="schedule-heading" data-i18n="events.single.schedule">Schedule</h2>
           <ul>
             <li>{{SCHEDULE_ITEM}}</li>
           </ul>
         </section>
 
         <section aria-labelledby="mentor-heading">
-          <h2 id="mentor-heading">Mentor</h2>
+          <h2 id="mentor-heading" data-i18n="events.single.mentor">Mentor</h2>
           <p>{{SPEAKER}} · {{MENTOR_BIO}}</p>
         </section>
       </div>
@@ -151,7 +156,7 @@
       <aside class="single-action" aria-label="Registration">
         <p class="action-eyebrow">{{STATUS_LABEL}}</p>
         <p class="action-when">{{START_WIB}} – {{END_WIB}} WIB</p>
-        <a class="btn-cta" href="{{REGISTER_URL}}" hx-boost="false">Register Now →</a>
+        <a class="btn-cta" href="{{REGISTER_URL}}" hx-boost="false" data-i18n="events.single.register">Register Now →</a>
         <!-- Closed state: <span class="btn-cta is-closed" aria-disabled="true">Registration Closed</span> -->
         <p class="action-note">Hosted by {{SPEAKER}} · {{LOCATION}} · {{PRICE}} · {{QUOTA}} seats</p>
       </aside>
@@ -161,27 +166,27 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <nav class="footer-col" aria-label="Learn About Radova">
-        <h3 class="footer-heading">Learn About Radova</h3>
+        <h3 class="footer-heading" data-i18n="footer.col1">Learn About Radova</h3>
         <ul class="footer-links">
-          <li><a href="https://radova.org/about/">About</a></li>
-          <li><a href="https://radova.org/about/history">History</a></li>
-          <li><a href="https://radova.org/latest/">Latest</a></li>
-          <li><a href="https://radova.org/events">Events</a></li>
+          <li><a href="https://radova.org/about/" data-i18n="nav.about">About</a></li>
+          <li><a href="https://radova.org/about/history" data-i18n="nav.history">History</a></li>
+          <li><a href="https://radova.org/latest/" data-i18n="nav.latest">Latest</a></li>
+          <li><a href="https://radova.org/events" data-i18n="nav.events">Events</a></li>
         </ul>
       </nav>
 
       <nav class="footer-col" aria-label="Resources">
-        <h3 class="footer-heading">Resources</h3>
+        <h3 class="footer-heading" data-i18n="footer.col2">Resources</h3>
         <ul class="footer-links">
-          <li><a target="_blank" rel="noopener" href="https://packer.radova.org">Packages</a></li>
-          <li><a target="_blank" rel="noopener" href="https://wiki.radova.org">Wiki</a></li>
-          <li><a href="https://radova.org/learns">Learning</a></li>
-          <li><a href="https://sourceforge.net/projects/memora/files/radova-linux-2026.11.06-x86_64.iso/download">Download ISO</a></li>
+          <li><a target="_blank" rel="noopener" href="https://packer.radova.org" data-i18n="nav.packages">Packages</a></li>
+          <li><a target="_blank" rel="noopener" href="https://wiki.radova.org" data-i18n="nav.wiki">Wiki</a></li>
+          <li><a href="https://radova.org/learns" data-i18n="nav.learning">Learning</a></li>
+          <li><a href="https://sourceforge.net/projects/memora/files/radova-linux-2026.11.06-x86_64.iso/download" data-i18n="footer.download">Download ISO</a></li>
         </ul>
       </nav>
 
       <nav class="footer-col" aria-label="Core Pillars">
-        <h3 class="footer-heading">Core Pillars</h3>
+        <h3 class="footer-heading" data-i18n="footer.col3">Core Pillars</h3>
         <ul class="footer-links">
           <li><a href="https://radova.org/#fitur">Memora</a></li>
           <li><a href="https://radova.org/#fitur">Evrocks</a></li>
@@ -191,11 +196,11 @@
       </nav>
 
       <nav class="footer-col" aria-label="Help and Specs">
-        <h3 class="footer-heading">Help &amp; Specs</h3>
+        <h3 class="footer-heading" data-i18n="footer.col4">Help &amp; Specs</h3>
         <ul class="footer-links">
-          <li><a href="https://radova.org/about/contact">Contact</a></li>
-          <li><a href="https://radova.org/#spesifikasi">System Requirements</a></li>
-          <li><a href="https://radova.org/latest/security/">Security Advisories</a></li>
+          <li><a href="https://radova.org/about/contact" data-i18n="nav.contact">Contact</a></li>
+          <li><a href="https://radova.org/#spesifikasi" data-i18n="footer.specs">System Requirements</a></li>
+          <li><a href="https://radova.org/latest/security/" data-i18n="footer.security">Security Advisories</a></li>
         </ul>
       </nav>
     </div>
@@ -203,14 +208,15 @@
     <div class="footer-bottom">
       <div class="footer-brand-bar">
         <span class="brand-lockup brand-lockup-light">
-          <img src="https://radova.org/assets/logo-white.png" alt="Radova Logo" width="28">
+          <img src="../../assets/logo.png" alt="Radova Logo" width="28" height="28">
           <span class="brand-name">RADOVA</span>
         </span>
-        <p class="footer-copy">© 2026 yuros.org · Released under the MIT License</p>
+        <p class="footer-copy" data-i18n="footer.copy">© 2026 yuros.org · Released under the MIT License</p>
       </div>
 
-      <a class="footer-top" href="#main">Back to top ↑</a>
+      <a class="footer-top" href="#main" data-i18n="footer.top">Back to top ↑</a>
     </div>
   </footer>
+  <script>(function(w,d){var E=["pointerdown","keydown","touchstart","scroll","wheel","mouseover","focusin"],o={passive:true,capture:true},t=0;function u(){var b=d.querySelector('link[rel="icon"]').href.replace(/favicon\.svg.*$/,""),l=d.createElement("link");l.rel="stylesheet";l.href=b+"css/fonts.css";d.head.appendChild(l);["htmx.min.js","js/events.bundle.js"].forEach(function(s){var e=d.createElement("script");e.src=b+s;e.async=false;d.body.appendChild(e)})}function go(){if(t)return;t=1;E.forEach(function(e){w.removeEventListener(e,go,o)});d.readyState==="complete"?u():w.addEventListener("load",u,{once:true})}d.addEventListener("click",function(e){var b=!w.radovaReady&&e.target.closest&&e.target.closest("button");if(b)w.radovaPendingClick=b},true);E.forEach(function(e){w.addEventListener(e,go,o)});try{if(localStorage.getItem("radova-lang")==="id"||localStorage.getItem("radova-theme")==="dark")go()}catch(_){}})(window,document)</script>
 </body>
 </html>

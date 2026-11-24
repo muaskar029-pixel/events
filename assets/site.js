@@ -25,10 +25,27 @@
     });
   }
 
+  // Relative hrefs in swapped-in content belong to the response URL, not the page that requested it.
+  function pinLinks(root, base) {
+    root.querySelectorAll(".events-nav a, a[href]:not([href^='#']):not([href^='http'])").forEach(function (link) {
+      link.setAttribute("href", new URL(link.getAttribute("href"), base).href);
+    });
+  }
+
   document.addEventListener("htmx:afterSettle", function (event) {
+    var target = event.detail.target;
+    // outerHTML swaps detach the old target; work on the element now in the document.
+    if (target && !target.isConnected && target.id) {
+      target = document.getElementById(target.id);
+    }
+    var info = event.detail.pathInfo;
+    var path = info && (info.responsePath || info.finalRequestPath || info.requestPath);
+    if (target && path) {
+      pinLinks(target, new URL(path, window.location.href).href);
+    }
     syncActiveNav();
-    if (event.detail.target && event.detail.target.id === "main") {
-      event.detail.target.focus({ preventScroll: false });
+    if (target && target.id === "main") {
+      target.focus({ preventScroll: false });
     }
   });
   window.addEventListener("popstate", syncActiveNav);
@@ -82,7 +99,16 @@
   });
 })();
 
-document.addEventListener("DOMContentLoaded", function () {
+// The bundle is injected after first interaction, usually after DOMContentLoaded has fired.
+function onReady(fn) {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", fn);
+  } else {
+    fn();
+  }
+}
+
+onReady(function () {
   var navBtn = document.getElementById("about-menu-btn");
   var dropdownContainer = document.querySelector(".dropdown");
   var backBtn = document.querySelector(".d-content-back");
@@ -251,34 +277,49 @@ document.addEventListener("DOMContentLoaded", function () {
       "events.bc.p2": "Menjalankan Radova Linux 2026.11+ secara lokal atau di VM.",
       "events.bc.p3": "Hadir di empat sesi live hari Senin (19:00–21:00 WIB / UTC+7).",
       "events.bc.mentorDesc": "Tim Inti Radova · Maintainer infrastruktur packaging Radova, Memora, dan Coretez.",
-      "events.bc.note": "Dipandu oleh Tim Inti Radova · Kohort Online · Gratis · 20 peserta"
+      "events.bc.note": "Dipandu oleh Tim Inti Radova · Kohort Online · Gratis · 20 peserta",
+      "events.upcomingFull": "Jadwal Akan Datang & Berlangsung",
+      "events.closestFull": "Tanggal Terdekat Dulu",
+      "events.newestPaged": "Terbaru Dulu · 10 / Halaman",
+      "events.prev": "← Sebelumnya",
+      "events.next": "Halaman Berikutnya →",
+      "events.single.schedule": "Jadwal",
+      "err.chip": "404 · Tidak Ditemukan",
+      "err.title1": "Halaman tidak",
+      "err.title2": "ditemukan.",
+      "err.lead": "Halaman yang Anda cari sudah dipindahkan, diganti nama, atau belum pernah ada.",
+      "err.cta": "Kembali ke Acara",
+      "err.home": "Acara"
     };
 
     var nodes = [];
-    var enList = [];
 
+    // The original English text lives in data-en, captured the first time a node is seen.
+    // Header/footer survive hx-boost swaps, so re-reading their textContent would pick up Indonesian.
     function snapshotNodes() {
       nodes = Array.prototype.slice.call(document.querySelectorAll("[data-i18n], [data-i18n-prefix]"));
-      enList = nodes.map(function (node) {
-        return node.hasAttribute("data-i18n")
+      nodes.forEach(function (node) {
+        if (node.hasAttribute("data-en")) return;
+        node.setAttribute("data-en", node.hasAttribute("data-i18n")
           ? node.textContent
-          : (node.firstChild ? node.firstChild.nodeValue : "");
+          : (node.firstChild ? node.firstChild.nodeValue : ""));
       });
     }
 
     function applyLang(lang) {
-      nodes.forEach(function (el, i) {
+      nodes.forEach(function (el) {
+        var en = el.getAttribute("data-en");
         if (el.hasAttribute("data-i18n")) {
           var key = el.getAttribute("data-i18n");
-          el.textContent = lang === "id" && ID_TEXT[key] != null ? ID_TEXT[key] : enList[i];
+          el.textContent = lang === "id" && ID_TEXT[key] != null ? ID_TEXT[key] : en;
         } else if (el.firstChild) {
           var pkey = el.getAttribute("data-i18n-prefix");
-          el.firstChild.nodeValue = lang === "id" && ID_TEXT[pkey] != null ? ID_TEXT[pkey] + " " : enList[i];
+          el.firstChild.nodeValue = lang === "id" && ID_TEXT[pkey] != null ? ID_TEXT[pkey] + " " : en;
         }
       });
       document.documentElement.lang = lang;
       langBtn.textContent = lang.toUpperCase();
-      langBtn.setAttribute("aria-label", lang === "id" ? "Switch language to English" : "Switch language to Indonesian");
+      langBtn.setAttribute("aria-label", lang === "id" ? "ID: switch language to English" : "EN: switch language to Indonesian");
     }
 
     snapshotNodes();
@@ -306,64 +347,45 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// HTMX Dark Mode Controller (Radova darkmode.pdf palette)
+// Dark Mode Controller (vanilla JS; the inline <head> script applies the saved theme before first paint)
 (function () {
   "use strict";
   var THEME_KEY = "radova-theme";
   var SUN_SVG = '<svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="56"/><line x1="128" y1="36" x2="128" y2="16"/><line x1="128" y1="240" x2="128" y2="220"/><line x1="36" y1="128" x2="16" y2="128"/><line x1="240" y1="128" x2="220" y2="128"/><line x1="63" y1="63" x2="49" y2="49"/><line x1="207" y1="207" x2="193" y2="193"/><line x1="193" y1="63" x2="207" y2="49"/><line x1="49" y1="207" x2="63" y2="193"/></svg>';
   var MOON_SVG = '<svg width="16" height="16" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M216.7 152.6A91.9 91.9 0 0 1 103.4 39.3a92 92 0 1 0 113.3 113.3Z"/></svg>';
 
-  function getAssetsBase() {
-    var script = document.querySelector('script[src*="htmx.min.js"]');
-    return script ? new URL(".", script.src).href : new URL("assets/", window.location.href).href;
+  function syncButton(isDark) {
+    var btn = document.getElementById("theme-toggle");
+    if (!btn) return;
+    var label = isDark ? "Switch to light mode" : "Switch to dark mode";
+    btn.setAttribute("aria-pressed", String(isDark));
+    btn.setAttribute("aria-label", label);
+    btn.setAttribute("title", label);
+    btn.innerHTML = isDark ? SUN_SVG : MOON_SVG;
   }
 
   function applyTheme(theme) {
     var isDark = theme === "dark";
     document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
     try { localStorage.setItem(THEME_KEY, isDark ? "dark" : "light"); } catch (_) {}
+    syncButton(isDark);
+  }
+
+  onReady(function () {
+    syncButton(document.documentElement.getAttribute("data-theme") === "dark");
     var btn = document.getElementById("theme-toggle");
     if (btn) {
-      var nextFile = isDark ? "theme-light.html" : "theme-dark.html";
-      btn.setAttribute("data-set-theme", isDark ? "dark" : "light");
-      btn.setAttribute("aria-pressed", String(isDark));
-      btn.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
-      btn.setAttribute("title", isDark ? "Switch to light mode" : "Switch to dark mode");
-      btn.setAttribute("hx-get", new URL(nextFile, getAssetsBase()).href);
-      btn.innerHTML = isDark ? SUN_SVG : MOON_SVG;
-      if (window.htmx) window.htmx.process(btn);
-    }
-  }
-
-  function getSavedTheme() {
-    try {
-      var saved = localStorage.getItem(THEME_KEY);
-      if (saved === "dark" || saved === "light") return saved;
-    } catch (_) {}
-    return "light";
-  }
-
-  document.addEventListener("DOMContentLoaded", function () {
-    applyTheme(getSavedTheme());
-  });
-
-  document.addEventListener("htmx:afterSwap", function (evt) {
-    var target = evt.detail && evt.detail.target;
-    var elt = evt.detail && evt.detail.elt;
-    if ((target && target.id === "theme-toggle") || (elt && elt.id === "theme-toggle")) {
-      var freshBtn = document.getElementById("theme-toggle");
-      applyTheme(freshBtn && freshBtn.getAttribute("data-set-theme") === "dark" ? "dark" : "light");
-    } else {
-      document.documentElement.setAttribute("data-theme", getSavedTheme());
+      btn.addEventListener("click", function () {
+        applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      });
     }
   });
-
-  function fallbackToggle(evt) {
-    var elt = evt.detail && evt.detail.elt;
-    if (elt && elt.id === "theme-toggle") {
-      applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
-    }
-  }
-  document.addEventListener("htmx:sendError", fallbackToggle);
-  document.addEventListener("htmx:responseError", fallbackToggle);
 })();
+
+// Replay a button click that landed before this bundle finished loading (see the inline loader).
+window.radovaReady = true;
+if (window.radovaPendingClick) {
+  var pending = window.radovaPendingClick;
+  window.radovaPendingClick = null;
+  pending.click();
+}
