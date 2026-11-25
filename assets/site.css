@@ -91,7 +91,7 @@ a:hover {
 
 .skip-link {
   position: absolute;
-  left: -9999px;
+  inset-inline-start: -9999px;
   top: 0;
   z-index: 100;
   padding: 0.5rem 1rem;
@@ -102,7 +102,7 @@ a:hover {
 }
 
 .skip-link:focus-visible {
-  left: 0.75rem;
+  inset-inline-start: 0.75rem;
   top: 0.75rem;
 }
 
@@ -194,7 +194,7 @@ body > header.site-header,
   font-weight: 500;
   color: #0E0347;
   text-decoration: none;
-  
+  transition: color 200ms cubic-bezier(.2,.7,.2,1);
 }
 
 .nav-list a:hover {
@@ -206,7 +206,7 @@ body > header.site-header,
 }
 
 .navbar {
-  margin-left: auto;
+  margin-inline-start: auto;
 }
 
 .nav-links {
@@ -234,8 +234,8 @@ nav.navbar li :where(a, [role="link"]) {
 .dropdown-content {
   position: absolute;
   top: calc(100% + 18px);
-  right: 0;
-  left: auto;
+  inset-inline-end: 0;
+  inset-inline-start: auto;
   transform: translateY(-6px);
   background: var(--radova-bg);
   min-width: 250px;
@@ -245,15 +245,15 @@ nav.navbar li :where(a, [role="link"]) {
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
 }
 
 .dropdown-content::before {
   content: '';
   position: absolute;
   top: -22px;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   height: 22px;
   background: transparent;
 }
@@ -284,12 +284,12 @@ nav.navbar li :where(a, [role="link"]) {
   text-transform: uppercase;
   letter-spacing: 1px;
   text-decoration: none;
-  text-align: left;
+  text-align: start;
   border: none;
   border-bottom: 1px solid #F0F0F0;
   border-radius: 0;
   cursor: pointer;
-  
+  transition: background-color 0.2s ease, color 0.2s ease;
   white-space: nowrap;
 }
 
@@ -318,14 +318,14 @@ nav.navbar li :where(a, [role="link"]) {
 .menu-arrow {
   position: absolute;
   top: 100%;
-  right: 20px;
-  left: auto;
+  inset-inline-end: 20px;
+  inset-inline-start: auto;
   transform: none;
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 10px solid rgba(14, 3, 71, 0.14);
+  border-inline-start: 10px solid transparent;
+  border-inline-end: 10px solid transparent;
+  border-bottom: 10px solid #A3A3A3;
   z-index: 1000;
   display: none;
   margin-top: 8px;
@@ -348,7 +348,7 @@ nav.navbar li :where(a, [role="link"]) {
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 16px;
-  
+  transition: background-color 0.2s ease, color 0.2s ease;
   display: inline-block;
   text-decoration: none;
   line-height: normal;
@@ -374,12 +374,12 @@ nav.navbar li :where(a, [role="link"]) {
   height: 38px;
   padding: 0;
   margin: 0;
-  margin-left: auto;
+  margin-inline-start: auto;
   background: transparent;
   border: 1px solid var(--radova-border);
   border-radius: 10px;
   cursor: pointer;
-  
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .nav-toggle:hover {
@@ -421,7 +421,7 @@ nav.navbar li :where(a, [role="link"]) {
   }
 
   .header-menu .navbar {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 }
 
@@ -444,7 +444,7 @@ nav.navbar li :where(a, [role="link"]) {
     justify-content: flex-start;
     width: 100%;
     height: calc(100dvh - 58px);
-    margin-left: 0;
+    margin-inline-start: 0;
     padding: 0.75rem max(1rem, calc((100% - var(--radova-max-width)) / 2)) 2rem;
     background: var(--radova-bg);
     border-top: 1px solid var(--radova-border);
@@ -548,7 +548,7 @@ button.btn-lang {
   border-radius: 16px;
   cursor: pointer;
   line-height: normal;
-  
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
 
 button.btn-lang:hover {
@@ -559,14 +559,14 @@ button.btn-lang:hover {
 
 @media (max-width: 767px) {
   button.btn-lang {
-    margin-left: auto;
+    margin-inline-start: auto;
     padding: 0.45rem 0.75rem;
     position: relative;
     z-index: 1002;
   }
 
   .nav-toggle {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 }
 
@@ -594,7 +594,7 @@ button.btn-lang:hover {
   text-transform: uppercase;
   color: var(--radova-muted);
   text-decoration: none;
-  transition: transform 140ms var(--radova-ease);
+  transition: color 180ms var(--radova-ease), background-color 180ms var(--radova-ease), border-color 180ms var(--radova-ease), transform 140ms var(--radova-ease);
 }
 
 .events-nav a:hover {
@@ -709,7 +709,7 @@ nav.footer-col {
   font-size: 14px;
   font-weight: 400;
   text-decoration: none;
-  
+  transition: color 160ms ease;
 }
 
 .footer-links a:hover {
@@ -766,7 +766,7 @@ nav.footer-col {
   padding: 0.45rem 0.9rem;
   border: 1px solid rgba(255, 255, 255, 0.45);
   border-radius: 999px;
-  
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease;
 }
 
 .footer-top:hover {
@@ -821,12 +821,12 @@ nav.footer-col {
   }
 
   .hero-title-col {
-    padding-right: 2.25rem;
+    padding-inline-end: 2.25rem;
   }
 
   .hero-lead-col {
-    padding-left: 2.25rem;
-    border-left: 2px solid var(--tab-divider);
+    padding-inline-start: 2.25rem;
+    border-inline-start: 2px solid var(--tab-divider);
   }
 }
 
@@ -904,8 +904,9 @@ nav.footer-col {
   border-radius: var(--radova-radius);
   overflow: hidden;
   box-shadow: var(--radova-shadow-card);
-  transition: transform 200ms var(--radova-ease);
+  transition: transform 200ms var(--radova-ease), border-color 200ms var(--radova-ease), box-shadow 200ms var(--radova-ease);
 }
+
 
 .timetable-col:has(.slot-title a:focus-visible) {
   outline: 2px solid var(--tab-accent-vivid);
@@ -936,7 +937,7 @@ nav.footer-col {
   flex-direction: column;
   justify-content: space-between;
   background-color: var(--radova-bg);
-  
+  transition: background-color 180ms var(--radova-ease);
 }
 
 .slot-body:active {
@@ -980,7 +981,7 @@ nav.footer-col {
 .slot-title a {
   color: inherit;
   text-decoration: none;
-  
+  transition: color 160ms var(--radova-ease);
 }
 
 .slot-title a::after {
@@ -1130,7 +1131,7 @@ nav.footer-col {
   border: 1px solid var(--radova-border);
   border-radius: var(--radova-radius-md);
   box-shadow: var(--radova-shadow-card);
-  transition: transform 200ms var(--radova-ease);
+  transition: transform 200ms var(--radova-ease), border-color 200ms var(--radova-ease), box-shadow 200ms var(--radova-ease);
 }
 
 @media (hover: hover) {
@@ -1158,7 +1159,7 @@ nav.footer-col {
 .archive-item h3 a {
   color: inherit;
   text-decoration: none;
-  
+  transition: color 160ms var(--radova-ease);
 }
 
 .archive-item h3 a::after {
@@ -1223,7 +1224,7 @@ nav.footer-col {
   text-transform: uppercase;
   color: var(--radova-text);
   text-decoration: none;
-  
+  transition: color 160ms var(--radova-ease);
 }
 
 .pagination-link[rel="next"] {
@@ -1273,7 +1274,7 @@ nav.footer-col {
   font-weight: 700;
   color: var(--tab-accent);
   text-decoration: none;
-  
+  transition: background-color 160ms var(--radova-ease), border-color 160ms var(--radova-ease), color 160ms var(--radova-ease);
 }
 
 .back-link:hover {
@@ -1415,7 +1416,7 @@ nav.footer-col {
   letter-spacing: 0.05em;
   text-decoration: none;
   box-shadow: var(--tab-cta-shadow);
-  transition: transform 140ms var(--radova-ease);
+  transition: background-color 180ms var(--radova-ease), transform 140ms var(--radova-ease), box-shadow 180ms var(--radova-ease);
 }
 
 .btn-cta:hover {
@@ -1496,8 +1497,8 @@ nav.footer-col {
 .syllabus-timeline {
   list-style: none;
   margin: 0;
-  padding: 0 0 0 1.35rem;
-  border-left: 2px solid var(--tab-divider);
+  padding-block: 0 0; padding-inline: 1.35rem 0;
+  border-inline-start: 2px solid var(--tab-divider);
 }
 
 .syllabus-timeline li {
@@ -1508,7 +1509,7 @@ nav.footer-col {
 .syllabus-timeline li::before {
   content: "";
   position: absolute;
-  left: -1.72rem;
+  inset-inline-start: -1.72rem;
   top: 0.35rem;
   width: 0.55rem;
   height: 0.55rem;
@@ -1647,7 +1648,7 @@ nav.footer-col {
     radial-gradient(80% 85% at 92% 10%, rgba(219, 0, 15, 0.42), transparent 65%),
     linear-gradient(145deg, #0E0347 0%, #1b0868 100%);
   background-size: 16px 16px, auto, auto;
-  transition: transform 220ms var(--radova-ease);
+  transition: transform 220ms var(--radova-ease), box-shadow 220ms var(--radova-ease), border-color 220ms var(--radova-ease);
 }
 
 /* Alternating Radova Crimson Shot Frame for even cards */
@@ -1693,7 +1694,7 @@ nav.footer-col {
   display: grid;
   place-items: center;
   font-size: 0.9rem;
-  transition: transform 180ms var(--radova-ease);
+  transition: background-color 180ms var(--radova-ease), transform 180ms var(--radova-ease);
 }
 
 .site-main[data-event-tab="all"] .timetable-col:hover .slot-date-head::after {
@@ -1948,7 +1949,7 @@ nav.footer-col {
   border-radius: 0;
   background-color: transparent;
   box-shadow: none;
-  
+  transition: background-color 180ms var(--radova-ease);
 }
 
 .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .timetable-col::before {
@@ -2049,7 +2050,7 @@ nav.footer-col {
   border: 0;
   background-color: var(--radova-surface);
   box-shadow: none;
-  
+  transition: background-color 180ms var(--radova-ease);
 }
 
 .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .archive-item:hover {
@@ -2197,6 +2198,7 @@ nav.footer-col {
   }
 }
 
+
 /* ==========================================================================
    Dark Mode Toggle Button & Official Radova Dark Palette (darkmode.pdf)
    Background: #0B0711 | Card: #150B52 | Deep Navy: #0E0347
@@ -2211,7 +2213,7 @@ button.btn-theme {
   height: 36px;
   min-height: 36px;
   margin: 0;
-  margin-left: auto;
+  margin-inline-start: auto;
   padding: 0;
   border-radius: 999px;
   border: 1.5px solid rgba(14, 3, 71, 0.18);
@@ -2219,16 +2221,12 @@ button.btn-theme {
   color: #0E0347;
   cursor: pointer;
   flex-shrink: 0;
-  transition: transform 140ms ease;
-}
-
-button.btn-theme + button.btn-lang {
-  margin-left: 0;
+  transition: border-color 160ms ease, color 160ms ease, background-color 160ms ease, transform 140ms ease;
 }
 
 @media (min-width: 768px) {
   button.btn-theme {
-    margin-left: 0;
+    margin-inline-start: 0;
   }
 }
 
@@ -2388,4 +2386,305 @@ button.btn-theme:active {
   margin: 1.5rem 0 0;
   max-width: 20rem;
 }
-body>header.site-header,.site-header{padding-block:10px;padding-inline:max(16px,calc((100% - var(--container-max,var(--radova-max-width,100%))) / 2));gap:20px;min-height:48px}.site-header .brand-lockup{gap:10px}.site-header .brand-name{font-family:"Lato",system-ui,-apple-system,sans-serif;font-size:13px;font-weight:900;letter-spacing:0.02em;text-transform:uppercase;color:#0E0347}.site-header .nav-list{gap:28px}.site-header .nav-list a{font-family:"Roboto Variable",system-ui,-apple-system,sans-serif;font-size:15px;font-weight:500;color:#0E0347}.site-header .nav-list a[aria-current="page"]{font-weight:700}.site-header .btn-navy,.site-header #about-menu-btn.btn-navy{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;font-weight:700;text-transform:uppercase;padding:8px 16px;border-radius:16px;background-color:#A10000;color:#F7F6FF}.site-header button.btn-lang{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px;font-weight:700;text-transform:uppercase;padding:8px 14px;border-radius:16px;color:#0E0347}@media (min-width:768px){.site-header .header-menu{display:flex;align-items:center;flex:1;gap:46px;margin-left:0;margin-inline-start:0}.site-header .header-menu>nav:first-child{margin-inline:auto}.site-header .navbar{margin-left:0;margin-inline-start:0}}:root[data-theme="dark"] .site-header .brand-name,:root[data-theme="dark"] .site-header .nav-list a{color:#FFFFFF}:root[data-theme="dark"] .site-header .btn-navy,:root[data-theme="dark"] .site-header #about-menu-btn.btn-navy,:root[data-theme="dark"] .site-header button.btn-lang{background-color:#150B52;color:#FFFFFF;border-color:rgba(196,192,212,0.28)}@media (max-width:767px){.site-header button.btn-lang{padding:7px 12px}.site-header .nav-list a{font-size:15.5px;font-weight:700;padding:9px 12px}}
+
+/* ==========================================================================
+   DESIGN.md conformance layer — keep this block identical in about, latest,
+   learns and events. It is loaded last so it wins the cascade.
+   ========================================================================== */
+:root {
+  --red-900: #A10000;
+  --red-700: #BB080B;
+  --red-600: #DB000F;
+  --red-500: #FF0000;
+  --navy-950: #0B0711;
+  --navy-900: #0E0347;
+  --navy-800: #150B52;
+  --blue: #0035C6;
+  --lavender: #F7F6FF;
+  --white: #FFFFFF;
+
+  --surface-page: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --surface-subtle: #F7F6FF;
+  --surface-dock: #F0EFFC;
+  --surface-header: rgba(255, 255, 255, 0.82);
+  --text-primary: #0E0347;
+  --text-heading: #A10000;
+  --text-muted: #5B5A78;
+  --text-accent: #DB000F;
+  --border-line: rgba(14, 3, 71, 0.10);
+  --border-card: rgba(14, 3, 71, 0.12);
+
+  --font-heading: "Lato", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --container-max: 100%;
+}
+
+/* Dark mode: only semantic tokens change; --navy-*, --red-*, --white stay constant. */
+:root[data-theme="dark"] {
+  --surface-page: #0B0711;
+  --surface-card: #150B52;
+  --surface-subtle: #150B52;
+  --surface-dock: #0E0347;
+  --surface-header: rgba(11, 7, 17, 0.88);
+  --text-primary: #FFFFFF;
+  --text-heading: #FFFFFF;
+  --text-muted: #C4C0D4;
+  --border-line: rgba(196, 192, 212, 0.18);
+  --border-card: rgba(196, 192, 212, 0.16);
+}
+
+/* Grid & root scale (xs default, sm, md, lg, xl, xxl) */
+html { font-size: 100%; }
+@media (min-width: 576px)  { :root { --container-max: 510px; }  html { font-size: 106.25%; } }
+@media (min-width: 768px)  { :root { --container-max: 700px; }  html { font-size: 112.5%; } }
+@media (min-width: 1024px) { :root { --container-max: 950px; }  html { font-size: 118.75%; } }
+@media (min-width: 1280px) { :root { --container-max: 1200px; } html { font-size: 125%; } }
+@media (min-width: 1536px) { :root { --container-max: 1450px; } html { font-size: 131.25%; } }
+
+.site-header,
+.site-footer {
+  padding-inline: max(1rem, calc((100% - var(--container-max)) / 2));
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Header & navigation */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: 48px;
+  padding-block: 0.65rem;
+  gap: 1.25rem;
+  background: var(--surface-header);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid var(--border-line);
+}
+:root .site-header {
+  background: var(--surface-header);
+  border-bottom-color: var(--border-line);
+}
+:root[data-theme="dark"] .site-header { border-bottom-color: var(--border-line); }
+.site-header .brand-name {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+.site-header .nav-list a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.site-header .nav-list a[aria-current="page"] { font-weight: 700; }
+:root:not([data-theme="dark"]) .dropdown-content a { color: #0E0347; }
+
+#about-menu-btn.btn-navy {
+  border-radius: 16px;
+  font-size: 13px;
+}
+@media (min-width: 768px) {
+  .site-header .dropdown-content {
+    top: calc(100% + 18px);
+    min-width: 250px;
+    border-radius: 16px;
+  }
+}
+
+button.btn-theme {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  padding: 0;
+  border-radius: 999px;
+}
+button.btn-lang {
+  border-radius: 16px;
+  font-size: 13px;
+}
+
+@media (max-width: 767px) {
+  .nav-toggle {
+    width: 38px;
+    height: 38px;
+  }
+  .header-menu.is-open {
+    top: 58px;
+    height: calc(100dvh - 58px);
+  }
+}
+
+/* Hero heading. :not(#_) lifts specificity over page-level `.hero h1` rules */
+main h1:not(#_) {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 4.8vw, 3.25rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--text-heading);
+}
+@media (min-width: 1280px) { main h1:not(#_) { font-size: 3.1rem; } }
+@media (min-width: 1536px) { main h1:not(#_) { font-size: 3.5rem; } }
+
+/* Buttons & chips */
+.btn-primary,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 1.5rem;
+  border-radius: 9999px;
+}
+.btn-primary,
+.button:not([class*="--outline"]) {
+  background: var(--red-600);
+  border-color: var(--red-600);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(219, 0, 15, 0.24);
+}
+.hero-chip,
+.chip {
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  font-size: 13px;
+  border: 1px solid rgba(219, 0, 15, 0.25);
+  background: rgba(219, 0, 15, 0.04);
+}
+
+/* Footer (body > footer.site-footer beats page-level `body > footer.site-footer` rules) */
+body > footer.site-footer {
+  background: #6D0000;
+  border-top: 3px solid var(--red-600);
+  color: rgba(255, 255, 255, 0.92);
+}
+:root[data-theme="dark"] body > footer.site-footer {
+  background: linear-gradient(180deg, var(--navy-900) 0%, var(--navy-950) 100%);
+  border-top-color: var(--red-600);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 576px)  { .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .footer-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.footer-top {
+  color: #FFFFFF;
+  font-size: 12.5px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+}
+
+/* Motion: only transform and opacity may transition */
+*,
+*::before,
+*::after {
+  transition-property: opacity, transform !important;
+}
+
+/* events: page container + body font per DESIGN.md */
+:root { --radova-max-width: var(--container-max); --font-body: "Roboto Variable", system-ui, -apple-system, sans-serif; }
+
+/* ==========================================================================
+   Language menu (EN / ID / AR), the last item in the header. Keep this block
+   identical in about, latest, learns and events.
+   ========================================================================== */
+.lang-menu {
+  position: relative;
+  flex-shrink: 0;
+}
+.lang-menu button.btn-lang {
+  margin: 0;
+  gap: 0.375rem;
+}
+.lang-menu button.btn-lang svg {
+  transition: transform 0.2s ease;
+}
+.lang-menu button.btn-lang[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+.lang-menu .lang-list {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  inset-inline-end: 0;
+  z-index: 1003;
+  display: block;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0.375rem;
+  list-style: none;
+  background: var(--surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(14, 3, 71, 0.12);
+}
+.lang-menu .lang-list[hidden] {
+  display: none;
+}
+.lang-menu .lang-list li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.lang-menu .lang-list a {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.55rem 0.75rem;
+  border: 0;
+  border-radius: 10px;
+  background: none;
+  color: var(--text-primary);
+  text-decoration: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: start;
+  cursor: pointer;
+}
+.lang-menu .lang-list a:hover,
+.lang-menu .lang-list a:focus-visible {
+  background: var(--surface-subtle);
+}
+.lang-menu .lang-list a[aria-current="true"] {
+  color: var(--text-heading);
+  font-weight: 700;
+}
+.lang-menu .lang-list a[aria-current="true"]::after {
+  content: "\2713" / "";
+  float: inline-end;
+  color: var(--text-accent);
+}
+@media (max-width: 767px) {
+  .lang-menu {
+    z-index: 1002;
+  }
+}
+/* Right-to-left pages (ar/): arrow icons point along the reading direction. */
+[dir="rtl"] :is(.btn-arrow, .btn-arrow-red, .button--arrow)::after {
+  transform: scaleX(-1);
+}
+[dir="rtl"] :is(.btn-arrow, .btn-arrow-red):hover::after {
+  transform: translateX(-10px) scaleX(-1);
+}
+/* Arabic is not letter-spaced: tracking only stretches the gaps between words. */
+[dir="rtl"] * {
+  letter-spacing: normal !important;
+}
+/* The diagonal "open" arrows point up and toward the reading end. */
+[dir="rtl"] .site-main[data-event-tab="all"] .slot-date-head::after,
+[dir="rtl"] .site-main:is([data-event-tab="workshop"], [data-event-tab="bootcamp"]) .hero-lead-col::after {
+  content: "\2196";
+}
+[dir="rtl"] .site-main[data-event-tab="all"] .timetable-col:hover .slot-date-head::after {
+  transform: translate(-2px, -2px);
+}
