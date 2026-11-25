@@ -426,6 +426,7 @@ nav.navbar li :where(a, [role="link"]) {
 }
 
 @media (max-width: 767px) {
+  button.btn-theme, .nav-toggle { width: 44px; height: 44px; min-height: 44px; }
   .nav-toggle {
     display: inline-flex;
     position: relative;
@@ -447,7 +448,7 @@ nav.navbar li :where(a, [role="link"]) {
     padding: 0.75rem max(1rem, calc((100% - var(--radova-max-width)) / 2)) 2rem;
     background: var(--radova-bg);
     border-top: 1px solid var(--radova-border);
-    overflow-y: auto;
+    overflow-y: auto; overscroll-behavior: contain;
     gap: 0.125rem;
   }
 
