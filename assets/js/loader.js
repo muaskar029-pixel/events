@@ -13,7 +13,7 @@
   function load() {
     if (loaded) return;
     loaded = true;
-    add("link", { rel: "stylesheet", href: new URL("../css/fonts.css", base).href });
+    // ponytail: fonts.css already loaded non-blocking in <head>
     function inject() {
       add("script", { src: new URL("../htmx.min.js", base).href, async: false });
       add("script", { src: new URL("events.bundle.js?v=2", base).href, async: false });
