@@ -1,4 +1,4 @@
-// Loads css/fonts.css, htmx.min.js, and js/events.bundle.js on first interaction.
+// Loads css/fonts.css, htmx.min.js, and js/events.bundle.js?v=2 on first interaction.
 (function () {
   "use strict";
   var base = document.currentScript.src;
@@ -16,7 +16,7 @@
     add("link", { rel: "stylesheet", href: new URL("../css/fonts.css", base).href });
     function inject() {
       add("script", { src: new URL("../htmx.min.js", base).href, async: false });
-      add("script", { src: new URL("events.bundle.js", base).href, async: false });
+      add("script", { src: new URL("events.bundle.js?v=2", base).href, async: false });
     }
     if (document.readyState === "complete") inject();
     else addEventListener("load", inject, { once: true });
