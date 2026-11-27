@@ -1,3 +1,4 @@
+:root{--surface-card:#FFFFFF;--surface-subtle:#F7F6FF;--text-primary:#0E0347;--text-heading:#A10000;--text-accent:#DB000F;--border-card:rgba(14,3,71,0.12);--font-body:"Roboto Variable",system-ui,-apple-system,sans-serif}:root[data-theme="dark"]{--surface-card:#150B52;--surface-subtle:#150B52;--text-primary:#FFFFFF;--text-heading:#FFFFFF;--text-accent:#FF6B74;--border-card:rgba(196,192,212,0.16)}
 /* ==========================================================================
    EVENTBRITE DESIGN SYSTEM FOR RADOVA EVENTS (BELOW-THE-FOLD & SHARED)
    ========================================================================== */
